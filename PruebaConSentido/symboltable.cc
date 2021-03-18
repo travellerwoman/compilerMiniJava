@@ -8,6 +8,22 @@ class Record{
   string id;
   string type;
   //getters and setters
+
+  string get_id (){
+      return id;
+  }
+
+  string get_type (){
+      return type;
+  }
+
+  string set_id ( string newId ){
+      id = newId;
+  }
+
+  string set_type ( string newType ){
+      type = newType;
+  }
   
   printRecord();
 }
