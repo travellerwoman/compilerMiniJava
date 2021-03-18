@@ -1,0 +1,2551 @@
+Terminales no usados en la gramática
+
+   tk_letra
+   tk_space
+   tk_new_line
+   tk_comment
+   tk_comment2
+   tk_string
+   tk_barra
+
+
+Gramática
+
+    0 $accept: Goal "end of file"
+
+    1 Goal: MainClass ClassDeclarationList "end of file"
+    2     | MainClass
+
+    3 MainClass: tk_class Identifier tk_open_bracket tk_public tk_static tk_void tk_main tk_open_parenthesis tk_var_String tk_open_sbracket tk_close_sbracket Identifier tk_close_parenthesis tk_open_bracket Statement tk_close_bracket tk_close_bracket
+
+    4 ClassDeclarationList: ClassDeclaration
+    5                     | ClassDeclarationList ClassDeclaration
+
+    6 extId: tk_extends Identifier
+
+    7 ClassDeclaration: tk_class Identifier extId tk_open_bracket VarDeclarationList MethodDeclarationList tk_close_bracket
+    8                 | tk_class Identifier tk_open_bracket VarDeclarationList MethodDeclarationList tk_close_bracket
+    9                 | tk_class Identifier extId tk_open_bracket MethodDeclarationList tk_close_bracket
+   10                 | tk_class Identifier tk_open_bracket MethodDeclarationList tk_close_bracket
+   11                 | tk_class Identifier extId tk_open_bracket VarDeclarationList tk_close_bracket
+   12                 | tk_class Identifier tk_open_bracket VarDeclarationList tk_close_bracket
+   13                 | tk_class Identifier extId tk_open_bracket tk_close_bracket
+   14                 | tk_class Identifier tk_open_bracket tk_close_bracket
+
+   15 VarDeclarationList: VarDeclaration
+   16                   | VarDeclarationList VarDeclaration
+
+   17 VarDeclaration: Type Identifier tk_dotcoma
+
+   18 MethodDeclarationList: MethodDeclaration
+   19                      | MethodDeclarationList MethodDeclaration
+
+   20 ComaTypeId: tk_coma Type Identifier
+   21           | ComaTypeId tk_coma Type Identifier
+
+   22 TypeIdComaTypeId: Type Identifier ComaTypeId
+   23                 | Type Identifier
+
+   24 MethodDeclaration: tk_public Type Identifier tk_open_parenthesis TypeIdComaTypeId tk_close_parenthesis tk_open_bracket VarDeclarationList StatementList tk_return Expression tk_dotcoma tk_close_bracket
+   25                  | tk_public Type Identifier tk_open_parenthesis TypeIdComaTypeId tk_close_parenthesis tk_open_bracket StatementList tk_return Expression tk_dotcoma tk_close_bracket
+   26                  | tk_public Type Identifier tk_open_parenthesis tk_close_parenthesis tk_open_bracket VarDeclarationList StatementList tk_return Expression tk_dotcoma tk_close_bracket
+   27                  | tk_public Type Identifier tk_open_parenthesis tk_close_parenthesis tk_open_bracket StatementList tk_return Expression tk_dotcoma tk_close_bracket
+   28                  | tk_public Type Identifier tk_open_parenthesis TypeIdComaTypeId tk_close_parenthesis tk_open_bracket VarDeclarationList tk_return Expression tk_dotcoma tk_close_bracket
+   29                  | tk_public Type Identifier tk_open_parenthesis TypeIdComaTypeId tk_close_parenthesis tk_open_bracket tk_return Expression tk_dotcoma tk_close_bracket
+   30                  | tk_public Type Identifier tk_open_parenthesis tk_close_parenthesis tk_open_bracket VarDeclarationList tk_return Expression tk_dotcoma tk_close_bracket
+   31                  | tk_public Type Identifier tk_open_parenthesis tk_close_parenthesis tk_open_bracket tk_return Expression tk_dotcoma tk_close_bracket
+
+   32 Type: tk_type_int tk_open_sbracket tk_close_sbracket
+   33     | tk_type_boolean
+   34     | tk_type_int
+   35     | Identifier
+
+   36 StatementList: Statement
+   37              | StatementList Statement
+
+   38 Statement: tk_open_bracket StatementList tk_close_bracket
+   39          | tk_open_bracket tk_close_bracket
+   40          | tk_if tk_open_parenthesis Expression tk_close_parenthesis Statement tk_else Statement
+   41          | tk_while tk_open_parenthesis Expression tk_close_parenthesis Statement
+   42          | tk_sop tk_open_parenthesis Expression tk_close_parenthesis tk_dotcoma
+   43          | Identifier tk_equals Expression tk_dotcoma
+   44          | Identifier tk_open_sbracket Expression tk_close_sbracket tk_equals Expression tk_dotcoma
+
+   45 ComaExp: tk_coma Expression
+   46        | ComaExp tk_coma ComaExp
+
+   47 ExpComaExp: Expression ComaExp
+   48           | Expression
+
+   49 Expression: Expression tk_and Expression
+   50           | Expression tk_relop Expression
+   51           | Expression tk_plus Expression
+   52           | Expression tk_minus Expression
+   53           | Expression tk_multiply Expression
+   54           | Expression tk_open_sbracket Expression tk_close_sbracket
+   55           | Expression tk_dot tk_length
+   56           | Expression tk_dot Identifier tk_open_parenthesis ExpComaExp tk_close_parenthesis
+   57           | Expression tk_dot Identifier tk_open_parenthesis tk_close_parenthesis
+   58           | tk_cifra
+   59           | tk_true
+   60           | tk_false
+   61           | Identifier
+   62           | tk_this
+   63           | tk_new tk_type_int tk_open_sbracket Expression tk_close_sbracket
+   64           | tk_new Identifier tk_open_parenthesis tk_close_parenthesis
+   65           | tk_exclamation Expression
+   66           | tk_open_parenthesis Expression tk_close_parenthesis
+
+   67 Identifier: tk_identifier
+
+
+Terminales con las reglas donde aparecen
+
+"end of file" (0) 0 1
+error (256)
+tk_letra (258)
+tk_cifra (259) 58
+tk_space (260)
+tk_new_line (261)
+tk_identifier (262) 67
+tk_comment (263)
+tk_comment2 (264)
+tk_string (265)
+tk_open_parenthesis (266) 3 24 25 26 27 28 29 30 31 40 41 42 56 57
+    64 66
+tk_close_parenthesis (267) 3 24 25 26 27 28 29 30 31 40 41 42 56 57
+    64 66
+tk_open_bracket (268) 3 7 8 9 10 11 12 13 14 24 25 26 27 28 29 30 31
+    38 39
+tk_close_bracket (269) 3 7 8 9 10 11 12 13 14 24 25 26 27 28 29 30
+    31 38 39
+tk_open_sbracket (270) 3 32 44 54 63
+tk_close_sbracket (271) 3 32 44 54 63
+tk_and (272) 49
+tk_plus (273) 51
+tk_minus (274) 52
+tk_barra (275)
+tk_multiply (276) 53
+tk_this (277) 62
+tk_new (278) 63 64
+tk_exclamation (279) 65
+tk_relop (280) 50
+tk_equals (281) 43 44
+tk_length (282) 55
+tk_dot (283) 55 56 57
+tk_dotcoma (284) 17 24 25 26 27 28 29 30 31 42 43 44
+tk_coma (285) 20 21 45 46
+tk_true (286) 59
+tk_false (287) 60
+tk_class (288) 3 7 8 9 10 11 12 13 14
+tk_public (289) 3 24 25 26 27 28 29 30 31
+tk_static (290) 3
+tk_void (291) 3
+tk_main (292) 3
+tk_var_String (293) 3
+tk_extends (294) 6
+tk_type_int (295) 32 34 63
+tk_type_boolean (296) 33
+tk_if (297) 40
+tk_else (298) 40
+tk_while (299) 41
+tk_sop (300) 42
+tk_return (301) 24 25 26 27 28 29 30 31
+
+
+No terminales con las reglas donde aparecen
+
+$accept (47)
+    en la izquierda: 0
+Goal (48)
+    en la izquierda: 1 2, en la derecha: 0
+MainClass (49)
+    en la izquierda: 3, en la derecha: 1 2
+ClassDeclarationList (50)
+    en la izquierda: 4 5, en la derecha: 1 5
+extId (51)
+    en la izquierda: 6, en la derecha: 7 9 11 13
+ClassDeclaration (52)
+    en la izquierda: 7 8 9 10 11 12 13 14, en la derecha: 4 5
+VarDeclarationList (53)
+    en la izquierda: 15 16, en la derecha: 7 8 11 12 16 24 26 28 30
+VarDeclaration (54)
+    en la izquierda: 17, en la derecha: 15 16
+MethodDeclarationList (55)
+    en la izquierda: 18 19, en la derecha: 7 8 9 10 19
+ComaTypeId (56)
+    en la izquierda: 20 21, en la derecha: 21 22
+TypeIdComaTypeId (57)
+    en la izquierda: 22 23, en la derecha: 24 25 28 29
+MethodDeclaration (58)
+    en la izquierda: 24 25 26 27 28 29 30 31, en la derecha: 18 19
+Type (59)
+    en la izquierda: 32 33 34 35, en la derecha: 17 20 21 22 23 24
+    25 26 27 28 29 30 31
+StatementList (60)
+    en la izquierda: 36 37, en la derecha: 24 25 26 27 37 38
+Statement (61)
+    en la izquierda: 38 39 40 41 42 43 44, en la derecha: 3 36 37 40
+    41
+ComaExp (62)
+    en la izquierda: 45 46, en la derecha: 46 47
+ExpComaExp (63)
+    en la izquierda: 47 48, en la derecha: 56
+Expression (64)
+    en la izquierda: 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64
+    65 66, en la derecha: 24 25 26 27 28 29 30 31 40 41 42 43 44 45
+    47 48 49 50 51 52 53 54 55 56 57 63 65 66
+Identifier (65)
+    en la izquierda: 67, en la derecha: 3 6 7 8 9 10 11 12 13 14 17
+    20 21 22 23 24 25 26 27 28 29 30 31 35 43 44 56 57 61 64
+
+
+Estado 0
+
+    0 $accept: . Goal "end of file"
+
+    tk_class  desplazar e ir al estado 1
+
+    Goal       ir al estado 2
+    MainClass  ir al estado 3
+
+
+Estado 1
+
+    3 MainClass: tk_class . Identifier tk_open_bracket tk_public tk_static tk_void tk_main tk_open_parenthesis tk_var_String tk_open_sbracket tk_close_sbracket Identifier tk_close_parenthesis tk_open_bracket Statement tk_close_bracket tk_close_bracket
+
+    tk_identifier  desplazar e ir al estado 4
+
+    Identifier  ir al estado 5
+
+
+Estado 2
+
+    0 $accept: Goal . "end of file"
+
+    "end of file"  desplazar e ir al estado 6
+
+
+Estado 3
+
+    1 Goal: MainClass . ClassDeclarationList "end of file"
+    2     | MainClass .
+
+    tk_class  desplazar e ir al estado 7
+
+    $default  reduce usando la regla 2 (Goal)
+
+    ClassDeclarationList  ir al estado 8
+    ClassDeclaration      ir al estado 9
+
+
+Estado 4
+
+   67 Identifier: tk_identifier .
+
+    $default  reduce usando la regla 67 (Identifier)
+
+
+Estado 5
+
+    3 MainClass: tk_class Identifier . tk_open_bracket tk_public tk_static tk_void tk_main tk_open_parenthesis tk_var_String tk_open_sbracket tk_close_sbracket Identifier tk_close_parenthesis tk_open_bracket Statement tk_close_bracket tk_close_bracket
+
+    tk_open_bracket  desplazar e ir al estado 10
+
+
+Estado 6
+
+    0 $accept: Goal "end of file" .
+
+    $default  aceptar
+
+
+Estado 7
+
+    7 ClassDeclaration: tk_class . Identifier extId tk_open_bracket VarDeclarationList MethodDeclarationList tk_close_bracket
+    8                 | tk_class . Identifier tk_open_bracket VarDeclarationList MethodDeclarationList tk_close_bracket
+    9                 | tk_class . Identifier extId tk_open_bracket MethodDeclarationList tk_close_bracket
+   10                 | tk_class . Identifier tk_open_bracket MethodDeclarationList tk_close_bracket
+   11                 | tk_class . Identifier extId tk_open_bracket VarDeclarationList tk_close_bracket
+   12                 | tk_class . Identifier tk_open_bracket VarDeclarationList tk_close_bracket
+   13                 | tk_class . Identifier extId tk_open_bracket tk_close_bracket
+   14                 | tk_class . Identifier tk_open_bracket tk_close_bracket
+
+    tk_identifier  desplazar e ir al estado 4
+
+    Identifier  ir al estado 11
+
+
+Estado 8
+
+    1 Goal: MainClass ClassDeclarationList . "end of file"
+    5 ClassDeclarationList: ClassDeclarationList . ClassDeclaration
+
+    "end of file"  desplazar e ir al estado 12
+    tk_class       desplazar e ir al estado 7
+
+    ClassDeclaration  ir al estado 13
+
+
+Estado 9
+
+    4 ClassDeclarationList: ClassDeclaration .
+
+    $default  reduce usando la regla 4 (ClassDeclarationList)
+
+
+Estado 10
+
+    3 MainClass: tk_class Identifier tk_open_bracket . tk_public tk_static tk_void tk_main tk_open_parenthesis tk_var_String tk_open_sbracket tk_close_sbracket Identifier tk_close_parenthesis tk_open_bracket Statement tk_close_bracket tk_close_bracket
+
+    tk_public  desplazar e ir al estado 14
+
+
+Estado 11
+
+    7 ClassDeclaration: tk_class Identifier . extId tk_open_bracket VarDeclarationList MethodDeclarationList tk_close_bracket
+    8                 | tk_class Identifier . tk_open_bracket VarDeclarationList MethodDeclarationList tk_close_bracket
+    9                 | tk_class Identifier . extId tk_open_bracket MethodDeclarationList tk_close_bracket
+   10                 | tk_class Identifier . tk_open_bracket MethodDeclarationList tk_close_bracket
+   11                 | tk_class Identifier . extId tk_open_bracket VarDeclarationList tk_close_bracket
+   12                 | tk_class Identifier . tk_open_bracket VarDeclarationList tk_close_bracket
+   13                 | tk_class Identifier . extId tk_open_bracket tk_close_bracket
+   14                 | tk_class Identifier . tk_open_bracket tk_close_bracket
+
+    tk_open_bracket  desplazar e ir al estado 15
+    tk_extends       desplazar e ir al estado 16
+
+    extId  ir al estado 17
+
+
+Estado 12
+
+    1 Goal: MainClass ClassDeclarationList "end of file" .
+
+    $default  reduce usando la regla 1 (Goal)
+
+
+Estado 13
+
+    5 ClassDeclarationList: ClassDeclarationList ClassDeclaration .
+
+    $default  reduce usando la regla 5 (ClassDeclarationList)
+
+
+Estado 14
+
+    3 MainClass: tk_class Identifier tk_open_bracket tk_public . tk_static tk_void tk_main tk_open_parenthesis tk_var_String tk_open_sbracket tk_close_sbracket Identifier tk_close_parenthesis tk_open_bracket Statement tk_close_bracket tk_close_bracket
+
+    tk_static  desplazar e ir al estado 18
+
+
+Estado 15
+
+    8 ClassDeclaration: tk_class Identifier tk_open_bracket . VarDeclarationList MethodDeclarationList tk_close_bracket
+   10                 | tk_class Identifier tk_open_bracket . MethodDeclarationList tk_close_bracket
+   12                 | tk_class Identifier tk_open_bracket . VarDeclarationList tk_close_bracket
+   14                 | tk_class Identifier tk_open_bracket . tk_close_bracket
+
+    tk_identifier     desplazar e ir al estado 4
+    tk_close_bracket  desplazar e ir al estado 19
+    tk_public         desplazar e ir al estado 20
+    tk_type_int       desplazar e ir al estado 21
+    tk_type_boolean   desplazar e ir al estado 22
+
+    VarDeclarationList     ir al estado 23
+    VarDeclaration         ir al estado 24
+    MethodDeclarationList  ir al estado 25
+    MethodDeclaration      ir al estado 26
+    Type                   ir al estado 27
+    Identifier             ir al estado 28
+
+
+Estado 16
+
+    6 extId: tk_extends . Identifier
+
+    tk_identifier  desplazar e ir al estado 4
+
+    Identifier  ir al estado 29
+
+
+Estado 17
+
+    7 ClassDeclaration: tk_class Identifier extId . tk_open_bracket VarDeclarationList MethodDeclarationList tk_close_bracket
+    9                 | tk_class Identifier extId . tk_open_bracket MethodDeclarationList tk_close_bracket
+   11                 | tk_class Identifier extId . tk_open_bracket VarDeclarationList tk_close_bracket
+   13                 | tk_class Identifier extId . tk_open_bracket tk_close_bracket
+
+    tk_open_bracket  desplazar e ir al estado 30
+
+
+Estado 18
+
+    3 MainClass: tk_class Identifier tk_open_bracket tk_public tk_static . tk_void tk_main tk_open_parenthesis tk_var_String tk_open_sbracket tk_close_sbracket Identifier tk_close_parenthesis tk_open_bracket Statement tk_close_bracket tk_close_bracket
+
+    tk_void  desplazar e ir al estado 31
+
+
+Estado 19
+
+   14 ClassDeclaration: tk_class Identifier tk_open_bracket tk_close_bracket .
+
+    $default  reduce usando la regla 14 (ClassDeclaration)
+
+
+Estado 20
+
+   24 MethodDeclaration: tk_public . Type Identifier tk_open_parenthesis TypeIdComaTypeId tk_close_parenthesis tk_open_bracket VarDeclarationList StatementList tk_return Expression tk_dotcoma tk_close_bracket
+   25                  | tk_public . Type Identifier tk_open_parenthesis TypeIdComaTypeId tk_close_parenthesis tk_open_bracket StatementList tk_return Expression tk_dotcoma tk_close_bracket
+   26                  | tk_public . Type Identifier tk_open_parenthesis tk_close_parenthesis tk_open_bracket VarDeclarationList StatementList tk_return Expression tk_dotcoma tk_close_bracket
+   27                  | tk_public . Type Identifier tk_open_parenthesis tk_close_parenthesis tk_open_bracket StatementList tk_return Expression tk_dotcoma tk_close_bracket
+   28                  | tk_public . Type Identifier tk_open_parenthesis TypeIdComaTypeId tk_close_parenthesis tk_open_bracket VarDeclarationList tk_return Expression tk_dotcoma tk_close_bracket
+   29                  | tk_public . Type Identifier tk_open_parenthesis TypeIdComaTypeId tk_close_parenthesis tk_open_bracket tk_return Expression tk_dotcoma tk_close_bracket
+   30                  | tk_public . Type Identifier tk_open_parenthesis tk_close_parenthesis tk_open_bracket VarDeclarationList tk_return Expression tk_dotcoma tk_close_bracket
+   31                  | tk_public . Type Identifier tk_open_parenthesis tk_close_parenthesis tk_open_bracket tk_return Expression tk_dotcoma tk_close_bracket
+
+    tk_identifier    desplazar e ir al estado 4
+    tk_type_int      desplazar e ir al estado 21
+    tk_type_boolean  desplazar e ir al estado 22
+
+    Type        ir al estado 32
+    Identifier  ir al estado 28
+
+
+Estado 21
+
+   32 Type: tk_type_int . tk_open_sbracket tk_close_sbracket
+   34     | tk_type_int .
+
+    tk_open_sbracket  desplazar e ir al estado 33
+
+    $default  reduce usando la regla 34 (Type)
+
+
+Estado 22
+
+   33 Type: tk_type_boolean .
+
+    $default  reduce usando la regla 33 (Type)
+
+
+Estado 23
+
+    8 ClassDeclaration: tk_class Identifier tk_open_bracket VarDeclarationList . MethodDeclarationList tk_close_bracket
+   12                 | tk_class Identifier tk_open_bracket VarDeclarationList . tk_close_bracket
+   16 VarDeclarationList: VarDeclarationList . VarDeclaration
+
+    tk_identifier     desplazar e ir al estado 4
+    tk_close_bracket  desplazar e ir al estado 34
+    tk_public         desplazar e ir al estado 20
+    tk_type_int       desplazar e ir al estado 21
+    tk_type_boolean   desplazar e ir al estado 22
+
+    VarDeclaration         ir al estado 35
+    MethodDeclarationList  ir al estado 36
+    MethodDeclaration      ir al estado 26
+    Type                   ir al estado 27
+    Identifier             ir al estado 28
+
+
+Estado 24
+
+   15 VarDeclarationList: VarDeclaration .
+
+    $default  reduce usando la regla 15 (VarDeclarationList)
+
+
+Estado 25
+
+   10 ClassDeclaration: tk_class Identifier tk_open_bracket MethodDeclarationList . tk_close_bracket
+   19 MethodDeclarationList: MethodDeclarationList . MethodDeclaration
+
+    tk_close_bracket  desplazar e ir al estado 37
+    tk_public         desplazar e ir al estado 20
+
+    MethodDeclaration  ir al estado 38
+
+
+Estado 26
+
+   18 MethodDeclarationList: MethodDeclaration .
+
+    $default  reduce usando la regla 18 (MethodDeclarationList)
+
+
+Estado 27
+
+   17 VarDeclaration: Type . Identifier tk_dotcoma
+
+    tk_identifier  desplazar e ir al estado 4
+
+    Identifier  ir al estado 39
+
+
+Estado 28
+
+   35 Type: Identifier .
+
+    $default  reduce usando la regla 35 (Type)
+
+
+Estado 29
+
+    6 extId: tk_extends Identifier .
+
+    $default  reduce usando la regla 6 (extId)
+
+
+Estado 30
+
+    7 ClassDeclaration: tk_class Identifier extId tk_open_bracket . VarDeclarationList MethodDeclarationList tk_close_bracket
+    9                 | tk_class Identifier extId tk_open_bracket . MethodDeclarationList tk_close_bracket
+   11                 | tk_class Identifier extId tk_open_bracket . VarDeclarationList tk_close_bracket
+   13                 | tk_class Identifier extId tk_open_bracket . tk_close_bracket
+
+    tk_identifier     desplazar e ir al estado 4
+    tk_close_bracket  desplazar e ir al estado 40
+    tk_public         desplazar e ir al estado 20
+    tk_type_int       desplazar e ir al estado 21
+    tk_type_boolean   desplazar e ir al estado 22
+
+    VarDeclarationList     ir al estado 41
+    VarDeclaration         ir al estado 24
+    MethodDeclarationList  ir al estado 42
+    MethodDeclaration      ir al estado 26
+    Type                   ir al estado 27
+    Identifier             ir al estado 28
+
+
+Estado 31
+
+    3 MainClass: tk_class Identifier tk_open_bracket tk_public tk_static tk_void . tk_main tk_open_parenthesis tk_var_String tk_open_sbracket tk_close_sbracket Identifier tk_close_parenthesis tk_open_bracket Statement tk_close_bracket tk_close_bracket
+
+    tk_main  desplazar e ir al estado 43
+
+
+Estado 32
+
+   24 MethodDeclaration: tk_public Type . Identifier tk_open_parenthesis TypeIdComaTypeId tk_close_parenthesis tk_open_bracket VarDeclarationList StatementList tk_return Expression tk_dotcoma tk_close_bracket
+   25                  | tk_public Type . Identifier tk_open_parenthesis TypeIdComaTypeId tk_close_parenthesis tk_open_bracket StatementList tk_return Expression tk_dotcoma tk_close_bracket
+   26                  | tk_public Type . Identifier tk_open_parenthesis tk_close_parenthesis tk_open_bracket VarDeclarationList StatementList tk_return Expression tk_dotcoma tk_close_bracket
+   27                  | tk_public Type . Identifier tk_open_parenthesis tk_close_parenthesis tk_open_bracket StatementList tk_return Expression tk_dotcoma tk_close_bracket
+   28                  | tk_public Type . Identifier tk_open_parenthesis TypeIdComaTypeId tk_close_parenthesis tk_open_bracket VarDeclarationList tk_return Expression tk_dotcoma tk_close_bracket
+   29                  | tk_public Type . Identifier tk_open_parenthesis TypeIdComaTypeId tk_close_parenthesis tk_open_bracket tk_return Expression tk_dotcoma tk_close_bracket
+   30                  | tk_public Type . Identifier tk_open_parenthesis tk_close_parenthesis tk_open_bracket VarDeclarationList tk_return Expression tk_dotcoma tk_close_bracket
+   31                  | tk_public Type . Identifier tk_open_parenthesis tk_close_parenthesis tk_open_bracket tk_return Expression tk_dotcoma tk_close_bracket
+
+    tk_identifier  desplazar e ir al estado 4
+
+    Identifier  ir al estado 44
+
+
+Estado 33
+
+   32 Type: tk_type_int tk_open_sbracket . tk_close_sbracket
+
+    tk_close_sbracket  desplazar e ir al estado 45
+
+
+Estado 34
+
+   12 ClassDeclaration: tk_class Identifier tk_open_bracket VarDeclarationList tk_close_bracket .
+
+    $default  reduce usando la regla 12 (ClassDeclaration)
+
+
+Estado 35
+
+   16 VarDeclarationList: VarDeclarationList VarDeclaration .
+
+    $default  reduce usando la regla 16 (VarDeclarationList)
+
+
+Estado 36
+
+    8 ClassDeclaration: tk_class Identifier tk_open_bracket VarDeclarationList MethodDeclarationList . tk_close_bracket
+   19 MethodDeclarationList: MethodDeclarationList . MethodDeclaration
+
+    tk_close_bracket  desplazar e ir al estado 46
+    tk_public         desplazar e ir al estado 20
+
+    MethodDeclaration  ir al estado 38
+
+
+Estado 37
+
+   10 ClassDeclaration: tk_class Identifier tk_open_bracket MethodDeclarationList tk_close_bracket .
+
+    $default  reduce usando la regla 10 (ClassDeclaration)
+
+
+Estado 38
+
+   19 MethodDeclarationList: MethodDeclarationList MethodDeclaration .
+
+    $default  reduce usando la regla 19 (MethodDeclarationList)
+
+
+Estado 39
+
+   17 VarDeclaration: Type Identifier . tk_dotcoma
+
+    tk_dotcoma  desplazar e ir al estado 47
+
+
+Estado 40
+
+   13 ClassDeclaration: tk_class Identifier extId tk_open_bracket tk_close_bracket .
+
+    $default  reduce usando la regla 13 (ClassDeclaration)
+
+
+Estado 41
+
+    7 ClassDeclaration: tk_class Identifier extId tk_open_bracket VarDeclarationList . MethodDeclarationList tk_close_bracket
+   11                 | tk_class Identifier extId tk_open_bracket VarDeclarationList . tk_close_bracket
+   16 VarDeclarationList: VarDeclarationList . VarDeclaration
+
+    tk_identifier     desplazar e ir al estado 4
+    tk_close_bracket  desplazar e ir al estado 48
+    tk_public         desplazar e ir al estado 20
+    tk_type_int       desplazar e ir al estado 21
+    tk_type_boolean   desplazar e ir al estado 22
+
+    VarDeclaration         ir al estado 35
+    MethodDeclarationList  ir al estado 49
+    MethodDeclaration      ir al estado 26
+    Type                   ir al estado 27
+    Identifier             ir al estado 28
+
+
+Estado 42
+
+    9 ClassDeclaration: tk_class Identifier extId tk_open_bracket MethodDeclarationList . tk_close_bracket
+   19 MethodDeclarationList: MethodDeclarationList . MethodDeclaration
+
+    tk_close_bracket  desplazar e ir al estado 50
+    tk_public         desplazar e ir al estado 20
+
+    MethodDeclaration  ir al estado 38
+
+
+Estado 43
+
+    3 MainClass: tk_class Identifier tk_open_bracket tk_public tk_static tk_void tk_main . tk_open_parenthesis tk_var_String tk_open_sbracket tk_close_sbracket Identifier tk_close_parenthesis tk_open_bracket Statement tk_close_bracket tk_close_bracket
+
+    tk_open_parenthesis  desplazar e ir al estado 51
+
+
+Estado 44
+
+   24 MethodDeclaration: tk_public Type Identifier . tk_open_parenthesis TypeIdComaTypeId tk_close_parenthesis tk_open_bracket VarDeclarationList StatementList tk_return Expression tk_dotcoma tk_close_bracket
+   25                  | tk_public Type Identifier . tk_open_parenthesis TypeIdComaTypeId tk_close_parenthesis tk_open_bracket StatementList tk_return Expression tk_dotcoma tk_close_bracket
+   26                  | tk_public Type Identifier . tk_open_parenthesis tk_close_parenthesis tk_open_bracket VarDeclarationList StatementList tk_return Expression tk_dotcoma tk_close_bracket
+   27                  | tk_public Type Identifier . tk_open_parenthesis tk_close_parenthesis tk_open_bracket StatementList tk_return Expression tk_dotcoma tk_close_bracket
+   28                  | tk_public Type Identifier . tk_open_parenthesis TypeIdComaTypeId tk_close_parenthesis tk_open_bracket VarDeclarationList tk_return Expression tk_dotcoma tk_close_bracket
+   29                  | tk_public Type Identifier . tk_open_parenthesis TypeIdComaTypeId tk_close_parenthesis tk_open_bracket tk_return Expression tk_dotcoma tk_close_bracket
+   30                  | tk_public Type Identifier . tk_open_parenthesis tk_close_parenthesis tk_open_bracket VarDeclarationList tk_return Expression tk_dotcoma tk_close_bracket
+   31                  | tk_public Type Identifier . tk_open_parenthesis tk_close_parenthesis tk_open_bracket tk_return Expression tk_dotcoma tk_close_bracket
+
+    tk_open_parenthesis  desplazar e ir al estado 52
+
+
+Estado 45
+
+   32 Type: tk_type_int tk_open_sbracket tk_close_sbracket .
+
+    $default  reduce usando la regla 32 (Type)
+
+
+Estado 46
+
+    8 ClassDeclaration: tk_class Identifier tk_open_bracket VarDeclarationList MethodDeclarationList tk_close_bracket .
+
+    $default  reduce usando la regla 8 (ClassDeclaration)
+
+
+Estado 47
+
+   17 VarDeclaration: Type Identifier tk_dotcoma .
+
+    $default  reduce usando la regla 17 (VarDeclaration)
+
+
+Estado 48
+
+   11 ClassDeclaration: tk_class Identifier extId tk_open_bracket VarDeclarationList tk_close_bracket .
+
+    $default  reduce usando la regla 11 (ClassDeclaration)
+
+
+Estado 49
+
+    7 ClassDeclaration: tk_class Identifier extId tk_open_bracket VarDeclarationList MethodDeclarationList . tk_close_bracket
+   19 MethodDeclarationList: MethodDeclarationList . MethodDeclaration
+
+    tk_close_bracket  desplazar e ir al estado 53
+    tk_public         desplazar e ir al estado 20
+
+    MethodDeclaration  ir al estado 38
+
+
+Estado 50
+
+    9 ClassDeclaration: tk_class Identifier extId tk_open_bracket MethodDeclarationList tk_close_bracket .
+
+    $default  reduce usando la regla 9 (ClassDeclaration)
+
+
+Estado 51
+
+    3 MainClass: tk_class Identifier tk_open_bracket tk_public tk_static tk_void tk_main tk_open_parenthesis . tk_var_String tk_open_sbracket tk_close_sbracket Identifier tk_close_parenthesis tk_open_bracket Statement tk_close_bracket tk_close_bracket
+
+    tk_var_String  desplazar e ir al estado 54
+
+
+Estado 52
+
+   24 MethodDeclaration: tk_public Type Identifier tk_open_parenthesis . TypeIdComaTypeId tk_close_parenthesis tk_open_bracket VarDeclarationList StatementList tk_return Expression tk_dotcoma tk_close_bracket
+   25                  | tk_public Type Identifier tk_open_parenthesis . TypeIdComaTypeId tk_close_parenthesis tk_open_bracket StatementList tk_return Expression tk_dotcoma tk_close_bracket
+   26                  | tk_public Type Identifier tk_open_parenthesis . tk_close_parenthesis tk_open_bracket VarDeclarationList StatementList tk_return Expression tk_dotcoma tk_close_bracket
+   27                  | tk_public Type Identifier tk_open_parenthesis . tk_close_parenthesis tk_open_bracket StatementList tk_return Expression tk_dotcoma tk_close_bracket
+   28                  | tk_public Type Identifier tk_open_parenthesis . TypeIdComaTypeId tk_close_parenthesis tk_open_bracket VarDeclarationList tk_return Expression tk_dotcoma tk_close_bracket
+   29                  | tk_public Type Identifier tk_open_parenthesis . TypeIdComaTypeId tk_close_parenthesis tk_open_bracket tk_return Expression tk_dotcoma tk_close_bracket
+   30                  | tk_public Type Identifier tk_open_parenthesis . tk_close_parenthesis tk_open_bracket VarDeclarationList tk_return Expression tk_dotcoma tk_close_bracket
+   31                  | tk_public Type Identifier tk_open_parenthesis . tk_close_parenthesis tk_open_bracket tk_return Expression tk_dotcoma tk_close_bracket
+
+    tk_identifier         desplazar e ir al estado 4
+    tk_close_parenthesis  desplazar e ir al estado 55
+    tk_type_int           desplazar e ir al estado 21
+    tk_type_boolean       desplazar e ir al estado 22
+
+    TypeIdComaTypeId  ir al estado 56
+    Type              ir al estado 57
+    Identifier        ir al estado 28
+
+
+Estado 53
+
+    7 ClassDeclaration: tk_class Identifier extId tk_open_bracket VarDeclarationList MethodDeclarationList tk_close_bracket .
+
+    $default  reduce usando la regla 7 (ClassDeclaration)
+
+
+Estado 54
+
+    3 MainClass: tk_class Identifier tk_open_bracket tk_public tk_static tk_void tk_main tk_open_parenthesis tk_var_String . tk_open_sbracket tk_close_sbracket Identifier tk_close_parenthesis tk_open_bracket Statement tk_close_bracket tk_close_bracket
+
+    tk_open_sbracket  desplazar e ir al estado 58
+
+
+Estado 55
+
+   26 MethodDeclaration: tk_public Type Identifier tk_open_parenthesis tk_close_parenthesis . tk_open_bracket VarDeclarationList StatementList tk_return Expression tk_dotcoma tk_close_bracket
+   27                  | tk_public Type Identifier tk_open_parenthesis tk_close_parenthesis . tk_open_bracket StatementList tk_return Expression tk_dotcoma tk_close_bracket
+   30                  | tk_public Type Identifier tk_open_parenthesis tk_close_parenthesis . tk_open_bracket VarDeclarationList tk_return Expression tk_dotcoma tk_close_bracket
+   31                  | tk_public Type Identifier tk_open_parenthesis tk_close_parenthesis . tk_open_bracket tk_return Expression tk_dotcoma tk_close_bracket
+
+    tk_open_bracket  desplazar e ir al estado 59
+
+
+Estado 56
+
+   24 MethodDeclaration: tk_public Type Identifier tk_open_parenthesis TypeIdComaTypeId . tk_close_parenthesis tk_open_bracket VarDeclarationList StatementList tk_return Expression tk_dotcoma tk_close_bracket
+   25                  | tk_public Type Identifier tk_open_parenthesis TypeIdComaTypeId . tk_close_parenthesis tk_open_bracket StatementList tk_return Expression tk_dotcoma tk_close_bracket
+   28                  | tk_public Type Identifier tk_open_parenthesis TypeIdComaTypeId . tk_close_parenthesis tk_open_bracket VarDeclarationList tk_return Expression tk_dotcoma tk_close_bracket
+   29                  | tk_public Type Identifier tk_open_parenthesis TypeIdComaTypeId . tk_close_parenthesis tk_open_bracket tk_return Expression tk_dotcoma tk_close_bracket
+
+    tk_close_parenthesis  desplazar e ir al estado 60
+
+
+Estado 57
+
+   22 TypeIdComaTypeId: Type . Identifier ComaTypeId
+   23                 | Type . Identifier
+
+    tk_identifier  desplazar e ir al estado 4
+
+    Identifier  ir al estado 61
+
+
+Estado 58
+
+    3 MainClass: tk_class Identifier tk_open_bracket tk_public tk_static tk_void tk_main tk_open_parenthesis tk_var_String tk_open_sbracket . tk_close_sbracket Identifier tk_close_parenthesis tk_open_bracket Statement tk_close_bracket tk_close_bracket
+
+    tk_close_sbracket  desplazar e ir al estado 62
+
+
+Estado 59
+
+   26 MethodDeclaration: tk_public Type Identifier tk_open_parenthesis tk_close_parenthesis tk_open_bracket . VarDeclarationList StatementList tk_return Expression tk_dotcoma tk_close_bracket
+   27                  | tk_public Type Identifier tk_open_parenthesis tk_close_parenthesis tk_open_bracket . StatementList tk_return Expression tk_dotcoma tk_close_bracket
+   30                  | tk_public Type Identifier tk_open_parenthesis tk_close_parenthesis tk_open_bracket . VarDeclarationList tk_return Expression tk_dotcoma tk_close_bracket
+   31                  | tk_public Type Identifier tk_open_parenthesis tk_close_parenthesis tk_open_bracket . tk_return Expression tk_dotcoma tk_close_bracket
+
+    tk_identifier    desplazar e ir al estado 4
+    tk_open_bracket  desplazar e ir al estado 63
+    tk_type_int      desplazar e ir al estado 21
+    tk_type_boolean  desplazar e ir al estado 22
+    tk_if            desplazar e ir al estado 64
+    tk_while         desplazar e ir al estado 65
+    tk_sop           desplazar e ir al estado 66
+    tk_return        desplazar e ir al estado 67
+
+    VarDeclarationList  ir al estado 68
+    VarDeclaration      ir al estado 24
+    Type                ir al estado 27
+    StatementList       ir al estado 69
+    Statement           ir al estado 70
+    Identifier          ir al estado 71
+
+
+Estado 60
+
+   24 MethodDeclaration: tk_public Type Identifier tk_open_parenthesis TypeIdComaTypeId tk_close_parenthesis . tk_open_bracket VarDeclarationList StatementList tk_return Expression tk_dotcoma tk_close_bracket
+   25                  | tk_public Type Identifier tk_open_parenthesis TypeIdComaTypeId tk_close_parenthesis . tk_open_bracket StatementList tk_return Expression tk_dotcoma tk_close_bracket
+   28                  | tk_public Type Identifier tk_open_parenthesis TypeIdComaTypeId tk_close_parenthesis . tk_open_bracket VarDeclarationList tk_return Expression tk_dotcoma tk_close_bracket
+   29                  | tk_public Type Identifier tk_open_parenthesis TypeIdComaTypeId tk_close_parenthesis . tk_open_bracket tk_return Expression tk_dotcoma tk_close_bracket
+
+    tk_open_bracket  desplazar e ir al estado 72
+
+
+Estado 61
+
+   22 TypeIdComaTypeId: Type Identifier . ComaTypeId
+   23                 | Type Identifier .
+
+    tk_coma  desplazar e ir al estado 73
+
+    $default  reduce usando la regla 23 (TypeIdComaTypeId)
+
+    ComaTypeId  ir al estado 74
+
+
+Estado 62
+
+    3 MainClass: tk_class Identifier tk_open_bracket tk_public tk_static tk_void tk_main tk_open_parenthesis tk_var_String tk_open_sbracket tk_close_sbracket . Identifier tk_close_parenthesis tk_open_bracket Statement tk_close_bracket tk_close_bracket
+
+    tk_identifier  desplazar e ir al estado 4
+
+    Identifier  ir al estado 75
+
+
+Estado 63
+
+   38 Statement: tk_open_bracket . StatementList tk_close_bracket
+   39          | tk_open_bracket . tk_close_bracket
+
+    tk_identifier     desplazar e ir al estado 4
+    tk_open_bracket   desplazar e ir al estado 63
+    tk_close_bracket  desplazar e ir al estado 76
+    tk_if             desplazar e ir al estado 64
+    tk_while          desplazar e ir al estado 65
+    tk_sop            desplazar e ir al estado 66
+
+    StatementList  ir al estado 77
+    Statement      ir al estado 70
+    Identifier     ir al estado 78
+
+
+Estado 64
+
+   40 Statement: tk_if . tk_open_parenthesis Expression tk_close_parenthesis Statement tk_else Statement
+
+    tk_open_parenthesis  desplazar e ir al estado 79
+
+
+Estado 65
+
+   41 Statement: tk_while . tk_open_parenthesis Expression tk_close_parenthesis Statement
+
+    tk_open_parenthesis  desplazar e ir al estado 80
+
+
+Estado 66
+
+   42 Statement: tk_sop . tk_open_parenthesis Expression tk_close_parenthesis tk_dotcoma
+
+    tk_open_parenthesis  desplazar e ir al estado 81
+
+
+Estado 67
+
+   31 MethodDeclaration: tk_public Type Identifier tk_open_parenthesis tk_close_parenthesis tk_open_bracket tk_return . Expression tk_dotcoma tk_close_bracket
+
+    tk_cifra             desplazar e ir al estado 82
+    tk_identifier        desplazar e ir al estado 4
+    tk_open_parenthesis  desplazar e ir al estado 83
+    tk_this              desplazar e ir al estado 84
+    tk_new               desplazar e ir al estado 85
+    tk_exclamation       desplazar e ir al estado 86
+    tk_true              desplazar e ir al estado 87
+    tk_false             desplazar e ir al estado 88
+
+    Expression  ir al estado 89
+    Identifier  ir al estado 90
+
+
+Estado 68
+
+   16 VarDeclarationList: VarDeclarationList . VarDeclaration
+   26 MethodDeclaration: tk_public Type Identifier tk_open_parenthesis tk_close_parenthesis tk_open_bracket VarDeclarationList . StatementList tk_return Expression tk_dotcoma tk_close_bracket
+   30                  | tk_public Type Identifier tk_open_parenthesis tk_close_parenthesis tk_open_bracket VarDeclarationList . tk_return Expression tk_dotcoma tk_close_bracket
+
+    tk_identifier    desplazar e ir al estado 4
+    tk_open_bracket  desplazar e ir al estado 63
+    tk_type_int      desplazar e ir al estado 21
+    tk_type_boolean  desplazar e ir al estado 22
+    tk_if            desplazar e ir al estado 64
+    tk_while         desplazar e ir al estado 65
+    tk_sop           desplazar e ir al estado 66
+    tk_return        desplazar e ir al estado 91
+
+    VarDeclaration  ir al estado 35
+    Type            ir al estado 27
+    StatementList   ir al estado 92
+    Statement       ir al estado 70
+    Identifier      ir al estado 71
+
+
+Estado 69
+
+   27 MethodDeclaration: tk_public Type Identifier tk_open_parenthesis tk_close_parenthesis tk_open_bracket StatementList . tk_return Expression tk_dotcoma tk_close_bracket
+   37 StatementList: StatementList . Statement
+
+    tk_identifier    desplazar e ir al estado 4
+    tk_open_bracket  desplazar e ir al estado 63
+    tk_if            desplazar e ir al estado 64
+    tk_while         desplazar e ir al estado 65
+    tk_sop           desplazar e ir al estado 66
+    tk_return        desplazar e ir al estado 93
+
+    Statement   ir al estado 94
+    Identifier  ir al estado 78
+
+
+Estado 70
+
+   36 StatementList: Statement .
+
+    $default  reduce usando la regla 36 (StatementList)
+
+
+Estado 71
+
+   35 Type: Identifier .
+   43 Statement: Identifier . tk_equals Expression tk_dotcoma
+   44          | Identifier . tk_open_sbracket Expression tk_close_sbracket tk_equals Expression tk_dotcoma
+
+    tk_open_sbracket  desplazar e ir al estado 95
+    tk_equals         desplazar e ir al estado 96
+
+    $default  reduce usando la regla 35 (Type)
+
+
+Estado 72
+
+   24 MethodDeclaration: tk_public Type Identifier tk_open_parenthesis TypeIdComaTypeId tk_close_parenthesis tk_open_bracket . VarDeclarationList StatementList tk_return Expression tk_dotcoma tk_close_bracket
+   25                  | tk_public Type Identifier tk_open_parenthesis TypeIdComaTypeId tk_close_parenthesis tk_open_bracket . StatementList tk_return Expression tk_dotcoma tk_close_bracket
+   28                  | tk_public Type Identifier tk_open_parenthesis TypeIdComaTypeId tk_close_parenthesis tk_open_bracket . VarDeclarationList tk_return Expression tk_dotcoma tk_close_bracket
+   29                  | tk_public Type Identifier tk_open_parenthesis TypeIdComaTypeId tk_close_parenthesis tk_open_bracket . tk_return Expression tk_dotcoma tk_close_bracket
+
+    tk_identifier    desplazar e ir al estado 4
+    tk_open_bracket  desplazar e ir al estado 63
+    tk_type_int      desplazar e ir al estado 21
+    tk_type_boolean  desplazar e ir al estado 22
+    tk_if            desplazar e ir al estado 64
+    tk_while         desplazar e ir al estado 65
+    tk_sop           desplazar e ir al estado 66
+    tk_return        desplazar e ir al estado 97
+
+    VarDeclarationList  ir al estado 98
+    VarDeclaration      ir al estado 24
+    Type                ir al estado 27
+    StatementList       ir al estado 99
+    Statement           ir al estado 70
+    Identifier          ir al estado 71
+
+
+Estado 73
+
+   20 ComaTypeId: tk_coma . Type Identifier
+
+    tk_identifier    desplazar e ir al estado 4
+    tk_type_int      desplazar e ir al estado 21
+    tk_type_boolean  desplazar e ir al estado 22
+
+    Type        ir al estado 100
+    Identifier  ir al estado 28
+
+
+Estado 74
+
+   21 ComaTypeId: ComaTypeId . tk_coma Type Identifier
+   22 TypeIdComaTypeId: Type Identifier ComaTypeId .
+
+    tk_coma  desplazar e ir al estado 101
+
+    $default  reduce usando la regla 22 (TypeIdComaTypeId)
+
+
+Estado 75
+
+    3 MainClass: tk_class Identifier tk_open_bracket tk_public tk_static tk_void tk_main tk_open_parenthesis tk_var_String tk_open_sbracket tk_close_sbracket Identifier . tk_close_parenthesis tk_open_bracket Statement tk_close_bracket tk_close_bracket
+
+    tk_close_parenthesis  desplazar e ir al estado 102
+
+
+Estado 76
+
+   39 Statement: tk_open_bracket tk_close_bracket .
+
+    $default  reduce usando la regla 39 (Statement)
+
+
+Estado 77
+
+   37 StatementList: StatementList . Statement
+   38 Statement: tk_open_bracket StatementList . tk_close_bracket
+
+    tk_identifier     desplazar e ir al estado 4
+    tk_open_bracket   desplazar e ir al estado 63
+    tk_close_bracket  desplazar e ir al estado 103
+    tk_if             desplazar e ir al estado 64
+    tk_while          desplazar e ir al estado 65
+    tk_sop            desplazar e ir al estado 66
+
+    Statement   ir al estado 94
+    Identifier  ir al estado 78
+
+
+Estado 78
+
+   43 Statement: Identifier . tk_equals Expression tk_dotcoma
+   44          | Identifier . tk_open_sbracket Expression tk_close_sbracket tk_equals Expression tk_dotcoma
+
+    tk_open_sbracket  desplazar e ir al estado 95
+    tk_equals         desplazar e ir al estado 96
+
+
+Estado 79
+
+   40 Statement: tk_if tk_open_parenthesis . Expression tk_close_parenthesis Statement tk_else Statement
+
+    tk_cifra             desplazar e ir al estado 82
+    tk_identifier        desplazar e ir al estado 4
+    tk_open_parenthesis  desplazar e ir al estado 83
+    tk_this              desplazar e ir al estado 84
+    tk_new               desplazar e ir al estado 85
+    tk_exclamation       desplazar e ir al estado 86
+    tk_true              desplazar e ir al estado 87
+    tk_false             desplazar e ir al estado 88
+
+    Expression  ir al estado 104
+    Identifier  ir al estado 90
+
+
+Estado 80
+
+   41 Statement: tk_while tk_open_parenthesis . Expression tk_close_parenthesis Statement
+
+    tk_cifra             desplazar e ir al estado 82
+    tk_identifier        desplazar e ir al estado 4
+    tk_open_parenthesis  desplazar e ir al estado 83
+    tk_this              desplazar e ir al estado 84
+    tk_new               desplazar e ir al estado 85
+    tk_exclamation       desplazar e ir al estado 86
+    tk_true              desplazar e ir al estado 87
+    tk_false             desplazar e ir al estado 88
+
+    Expression  ir al estado 105
+    Identifier  ir al estado 90
+
+
+Estado 81
+
+   42 Statement: tk_sop tk_open_parenthesis . Expression tk_close_parenthesis tk_dotcoma
+
+    tk_cifra             desplazar e ir al estado 82
+    tk_identifier        desplazar e ir al estado 4
+    tk_open_parenthesis  desplazar e ir al estado 83
+    tk_this              desplazar e ir al estado 84
+    tk_new               desplazar e ir al estado 85
+    tk_exclamation       desplazar e ir al estado 86
+    tk_true              desplazar e ir al estado 87
+    tk_false             desplazar e ir al estado 88
+
+    Expression  ir al estado 106
+    Identifier  ir al estado 90
+
+
+Estado 82
+
+   58 Expression: tk_cifra .
+
+    $default  reduce usando la regla 58 (Expression)
+
+
+Estado 83
+
+   66 Expression: tk_open_parenthesis . Expression tk_close_parenthesis
+
+    tk_cifra             desplazar e ir al estado 82
+    tk_identifier        desplazar e ir al estado 4
+    tk_open_parenthesis  desplazar e ir al estado 83
+    tk_this              desplazar e ir al estado 84
+    tk_new               desplazar e ir al estado 85
+    tk_exclamation       desplazar e ir al estado 86
+    tk_true              desplazar e ir al estado 87
+    tk_false             desplazar e ir al estado 88
+
+    Expression  ir al estado 107
+    Identifier  ir al estado 90
+
+
+Estado 84
+
+   62 Expression: tk_this .
+
+    $default  reduce usando la regla 62 (Expression)
+
+
+Estado 85
+
+   63 Expression: tk_new . tk_type_int tk_open_sbracket Expression tk_close_sbracket
+   64           | tk_new . Identifier tk_open_parenthesis tk_close_parenthesis
+
+    tk_identifier  desplazar e ir al estado 4
+    tk_type_int    desplazar e ir al estado 108
+
+    Identifier  ir al estado 109
+
+
+Estado 86
+
+   65 Expression: tk_exclamation . Expression
+
+    tk_cifra             desplazar e ir al estado 82
+    tk_identifier        desplazar e ir al estado 4
+    tk_open_parenthesis  desplazar e ir al estado 83
+    tk_this              desplazar e ir al estado 84
+    tk_new               desplazar e ir al estado 85
+    tk_exclamation       desplazar e ir al estado 86
+    tk_true              desplazar e ir al estado 87
+    tk_false             desplazar e ir al estado 88
+
+    Expression  ir al estado 110
+    Identifier  ir al estado 90
+
+
+Estado 87
+
+   59 Expression: tk_true .
+
+    $default  reduce usando la regla 59 (Expression)
+
+
+Estado 88
+
+   60 Expression: tk_false .
+
+    $default  reduce usando la regla 60 (Expression)
+
+
+Estado 89
+
+   31 MethodDeclaration: tk_public Type Identifier tk_open_parenthesis tk_close_parenthesis tk_open_bracket tk_return Expression . tk_dotcoma tk_close_bracket
+   49 Expression: Expression . tk_and Expression
+   50           | Expression . tk_relop Expression
+   51           | Expression . tk_plus Expression
+   52           | Expression . tk_minus Expression
+   53           | Expression . tk_multiply Expression
+   54           | Expression . tk_open_sbracket Expression tk_close_sbracket
+   55           | Expression . tk_dot tk_length
+   56           | Expression . tk_dot Identifier tk_open_parenthesis ExpComaExp tk_close_parenthesis
+   57           | Expression . tk_dot Identifier tk_open_parenthesis tk_close_parenthesis
+
+    tk_open_sbracket  desplazar e ir al estado 111
+    tk_and            desplazar e ir al estado 112
+    tk_plus           desplazar e ir al estado 113
+    tk_minus          desplazar e ir al estado 114
+    tk_multiply       desplazar e ir al estado 115
+    tk_relop          desplazar e ir al estado 116
+    tk_dot            desplazar e ir al estado 117
+    tk_dotcoma        desplazar e ir al estado 118
+
+
+Estado 90
+
+   61 Expression: Identifier .
+
+    $default  reduce usando la regla 61 (Expression)
+
+
+Estado 91
+
+   30 MethodDeclaration: tk_public Type Identifier tk_open_parenthesis tk_close_parenthesis tk_open_bracket VarDeclarationList tk_return . Expression tk_dotcoma tk_close_bracket
+
+    tk_cifra             desplazar e ir al estado 82
+    tk_identifier        desplazar e ir al estado 4
+    tk_open_parenthesis  desplazar e ir al estado 83
+    tk_this              desplazar e ir al estado 84
+    tk_new               desplazar e ir al estado 85
+    tk_exclamation       desplazar e ir al estado 86
+    tk_true              desplazar e ir al estado 87
+    tk_false             desplazar e ir al estado 88
+
+    Expression  ir al estado 119
+    Identifier  ir al estado 90
+
+
+Estado 92
+
+   26 MethodDeclaration: tk_public Type Identifier tk_open_parenthesis tk_close_parenthesis tk_open_bracket VarDeclarationList StatementList . tk_return Expression tk_dotcoma tk_close_bracket
+   37 StatementList: StatementList . Statement
+
+    tk_identifier    desplazar e ir al estado 4
+    tk_open_bracket  desplazar e ir al estado 63
+    tk_if            desplazar e ir al estado 64
+    tk_while         desplazar e ir al estado 65
+    tk_sop           desplazar e ir al estado 66
+    tk_return        desplazar e ir al estado 120
+
+    Statement   ir al estado 94
+    Identifier  ir al estado 78
+
+
+Estado 93
+
+   27 MethodDeclaration: tk_public Type Identifier tk_open_parenthesis tk_close_parenthesis tk_open_bracket StatementList tk_return . Expression tk_dotcoma tk_close_bracket
+
+    tk_cifra             desplazar e ir al estado 82
+    tk_identifier        desplazar e ir al estado 4
+    tk_open_parenthesis  desplazar e ir al estado 83
+    tk_this              desplazar e ir al estado 84
+    tk_new               desplazar e ir al estado 85
+    tk_exclamation       desplazar e ir al estado 86
+    tk_true              desplazar e ir al estado 87
+    tk_false             desplazar e ir al estado 88
+
+    Expression  ir al estado 121
+    Identifier  ir al estado 90
+
+
+Estado 94
+
+   37 StatementList: StatementList Statement .
+
+    $default  reduce usando la regla 37 (StatementList)
+
+
+Estado 95
+
+   44 Statement: Identifier tk_open_sbracket . Expression tk_close_sbracket tk_equals Expression tk_dotcoma
+
+    tk_cifra             desplazar e ir al estado 82
+    tk_identifier        desplazar e ir al estado 4
+    tk_open_parenthesis  desplazar e ir al estado 83
+    tk_this              desplazar e ir al estado 84
+    tk_new               desplazar e ir al estado 85
+    tk_exclamation       desplazar e ir al estado 86
+    tk_true              desplazar e ir al estado 87
+    tk_false             desplazar e ir al estado 88
+
+    Expression  ir al estado 122
+    Identifier  ir al estado 90
+
+
+Estado 96
+
+   43 Statement: Identifier tk_equals . Expression tk_dotcoma
+
+    tk_cifra             desplazar e ir al estado 82
+    tk_identifier        desplazar e ir al estado 4
+    tk_open_parenthesis  desplazar e ir al estado 83
+    tk_this              desplazar e ir al estado 84
+    tk_new               desplazar e ir al estado 85
+    tk_exclamation       desplazar e ir al estado 86
+    tk_true              desplazar e ir al estado 87
+    tk_false             desplazar e ir al estado 88
+
+    Expression  ir al estado 123
+    Identifier  ir al estado 90
+
+
+Estado 97
+
+   29 MethodDeclaration: tk_public Type Identifier tk_open_parenthesis TypeIdComaTypeId tk_close_parenthesis tk_open_bracket tk_return . Expression tk_dotcoma tk_close_bracket
+
+    tk_cifra             desplazar e ir al estado 82
+    tk_identifier        desplazar e ir al estado 4
+    tk_open_parenthesis  desplazar e ir al estado 83
+    tk_this              desplazar e ir al estado 84
+    tk_new               desplazar e ir al estado 85
+    tk_exclamation       desplazar e ir al estado 86
+    tk_true              desplazar e ir al estado 87
+    tk_false             desplazar e ir al estado 88
+
+    Expression  ir al estado 124
+    Identifier  ir al estado 90
+
+
+Estado 98
+
+   16 VarDeclarationList: VarDeclarationList . VarDeclaration
+   24 MethodDeclaration: tk_public Type Identifier tk_open_parenthesis TypeIdComaTypeId tk_close_parenthesis tk_open_bracket VarDeclarationList . StatementList tk_return Expression tk_dotcoma tk_close_bracket
+   28                  | tk_public Type Identifier tk_open_parenthesis TypeIdComaTypeId tk_close_parenthesis tk_open_bracket VarDeclarationList . tk_return Expression tk_dotcoma tk_close_bracket
+
+    tk_identifier    desplazar e ir al estado 4
+    tk_open_bracket  desplazar e ir al estado 63
+    tk_type_int      desplazar e ir al estado 21
+    tk_type_boolean  desplazar e ir al estado 22
+    tk_if            desplazar e ir al estado 64
+    tk_while         desplazar e ir al estado 65
+    tk_sop           desplazar e ir al estado 66
+    tk_return        desplazar e ir al estado 125
+
+    VarDeclaration  ir al estado 35
+    Type            ir al estado 27
+    StatementList   ir al estado 126
+    Statement       ir al estado 70
+    Identifier      ir al estado 71
+
+
+Estado 99
+
+   25 MethodDeclaration: tk_public Type Identifier tk_open_parenthesis TypeIdComaTypeId tk_close_parenthesis tk_open_bracket StatementList . tk_return Expression tk_dotcoma tk_close_bracket
+   37 StatementList: StatementList . Statement
+
+    tk_identifier    desplazar e ir al estado 4
+    tk_open_bracket  desplazar e ir al estado 63
+    tk_if            desplazar e ir al estado 64
+    tk_while         desplazar e ir al estado 65
+    tk_sop           desplazar e ir al estado 66
+    tk_return        desplazar e ir al estado 127
+
+    Statement   ir al estado 94
+    Identifier  ir al estado 78
+
+
+Estado 100
+
+   20 ComaTypeId: tk_coma Type . Identifier
+
+    tk_identifier  desplazar e ir al estado 4
+
+    Identifier  ir al estado 128
+
+
+Estado 101
+
+   21 ComaTypeId: ComaTypeId tk_coma . Type Identifier
+
+    tk_identifier    desplazar e ir al estado 4
+    tk_type_int      desplazar e ir al estado 21
+    tk_type_boolean  desplazar e ir al estado 22
+
+    Type        ir al estado 129
+    Identifier  ir al estado 28
+
+
+Estado 102
+
+    3 MainClass: tk_class Identifier tk_open_bracket tk_public tk_static tk_void tk_main tk_open_parenthesis tk_var_String tk_open_sbracket tk_close_sbracket Identifier tk_close_parenthesis . tk_open_bracket Statement tk_close_bracket tk_close_bracket
+
+    tk_open_bracket  desplazar e ir al estado 130
+
+
+Estado 103
+
+   38 Statement: tk_open_bracket StatementList tk_close_bracket .
+
+    $default  reduce usando la regla 38 (Statement)
+
+
+Estado 104
+
+   40 Statement: tk_if tk_open_parenthesis Expression . tk_close_parenthesis Statement tk_else Statement
+   49 Expression: Expression . tk_and Expression
+   50           | Expression . tk_relop Expression
+   51           | Expression . tk_plus Expression
+   52           | Expression . tk_minus Expression
+   53           | Expression . tk_multiply Expression
+   54           | Expression . tk_open_sbracket Expression tk_close_sbracket
+   55           | Expression . tk_dot tk_length
+   56           | Expression . tk_dot Identifier tk_open_parenthesis ExpComaExp tk_close_parenthesis
+   57           | Expression . tk_dot Identifier tk_open_parenthesis tk_close_parenthesis
+
+    tk_close_parenthesis  desplazar e ir al estado 131
+    tk_open_sbracket      desplazar e ir al estado 111
+    tk_and                desplazar e ir al estado 112
+    tk_plus               desplazar e ir al estado 113
+    tk_minus              desplazar e ir al estado 114
+    tk_multiply           desplazar e ir al estado 115
+    tk_relop              desplazar e ir al estado 116
+    tk_dot                desplazar e ir al estado 117
+
+
+Estado 105
+
+   41 Statement: tk_while tk_open_parenthesis Expression . tk_close_parenthesis Statement
+   49 Expression: Expression . tk_and Expression
+   50           | Expression . tk_relop Expression
+   51           | Expression . tk_plus Expression
+   52           | Expression . tk_minus Expression
+   53           | Expression . tk_multiply Expression
+   54           | Expression . tk_open_sbracket Expression tk_close_sbracket
+   55           | Expression . tk_dot tk_length
+   56           | Expression . tk_dot Identifier tk_open_parenthesis ExpComaExp tk_close_parenthesis
+   57           | Expression . tk_dot Identifier tk_open_parenthesis tk_close_parenthesis
+
+    tk_close_parenthesis  desplazar e ir al estado 132
+    tk_open_sbracket      desplazar e ir al estado 111
+    tk_and                desplazar e ir al estado 112
+    tk_plus               desplazar e ir al estado 113
+    tk_minus              desplazar e ir al estado 114
+    tk_multiply           desplazar e ir al estado 115
+    tk_relop              desplazar e ir al estado 116
+    tk_dot                desplazar e ir al estado 117
+
+
+Estado 106
+
+   42 Statement: tk_sop tk_open_parenthesis Expression . tk_close_parenthesis tk_dotcoma
+   49 Expression: Expression . tk_and Expression
+   50           | Expression . tk_relop Expression
+   51           | Expression . tk_plus Expression
+   52           | Expression . tk_minus Expression
+   53           | Expression . tk_multiply Expression
+   54           | Expression . tk_open_sbracket Expression tk_close_sbracket
+   55           | Expression . tk_dot tk_length
+   56           | Expression . tk_dot Identifier tk_open_parenthesis ExpComaExp tk_close_parenthesis
+   57           | Expression . tk_dot Identifier tk_open_parenthesis tk_close_parenthesis
+
+    tk_close_parenthesis  desplazar e ir al estado 133
+    tk_open_sbracket      desplazar e ir al estado 111
+    tk_and                desplazar e ir al estado 112
+    tk_plus               desplazar e ir al estado 113
+    tk_minus              desplazar e ir al estado 114
+    tk_multiply           desplazar e ir al estado 115
+    tk_relop              desplazar e ir al estado 116
+    tk_dot                desplazar e ir al estado 117
+
+
+Estado 107
+
+   49 Expression: Expression . tk_and Expression
+   50           | Expression . tk_relop Expression
+   51           | Expression . tk_plus Expression
+   52           | Expression . tk_minus Expression
+   53           | Expression . tk_multiply Expression
+   54           | Expression . tk_open_sbracket Expression tk_close_sbracket
+   55           | Expression . tk_dot tk_length
+   56           | Expression . tk_dot Identifier tk_open_parenthesis ExpComaExp tk_close_parenthesis
+   57           | Expression . tk_dot Identifier tk_open_parenthesis tk_close_parenthesis
+   66           | tk_open_parenthesis Expression . tk_close_parenthesis
+
+    tk_close_parenthesis  desplazar e ir al estado 134
+    tk_open_sbracket      desplazar e ir al estado 111
+    tk_and                desplazar e ir al estado 112
+    tk_plus               desplazar e ir al estado 113
+    tk_minus              desplazar e ir al estado 114
+    tk_multiply           desplazar e ir al estado 115
+    tk_relop              desplazar e ir al estado 116
+    tk_dot                desplazar e ir al estado 117
+
+
+Estado 108
+
+   63 Expression: tk_new tk_type_int . tk_open_sbracket Expression tk_close_sbracket
+
+    tk_open_sbracket  desplazar e ir al estado 135
+
+
+Estado 109
+
+   64 Expression: tk_new Identifier . tk_open_parenthesis tk_close_parenthesis
+
+    tk_open_parenthesis  desplazar e ir al estado 136
+
+
+Estado 110
+
+   49 Expression: Expression . tk_and Expression
+   50           | Expression . tk_relop Expression
+   51           | Expression . tk_plus Expression
+   52           | Expression . tk_minus Expression
+   53           | Expression . tk_multiply Expression
+   54           | Expression . tk_open_sbracket Expression tk_close_sbracket
+   55           | Expression . tk_dot tk_length
+   56           | Expression . tk_dot Identifier tk_open_parenthesis ExpComaExp tk_close_parenthesis
+   57           | Expression . tk_dot Identifier tk_open_parenthesis tk_close_parenthesis
+   65           | tk_exclamation Expression .
+
+    tk_relop  desplazar e ir al estado 116
+    tk_dot    desplazar e ir al estado 117
+
+    $default  reduce usando la regla 65 (Expression)
+
+
+Estado 111
+
+   54 Expression: Expression tk_open_sbracket . Expression tk_close_sbracket
+
+    tk_cifra             desplazar e ir al estado 82
+    tk_identifier        desplazar e ir al estado 4
+    tk_open_parenthesis  desplazar e ir al estado 83
+    tk_this              desplazar e ir al estado 84
+    tk_new               desplazar e ir al estado 85
+    tk_exclamation       desplazar e ir al estado 86
+    tk_true              desplazar e ir al estado 87
+    tk_false             desplazar e ir al estado 88
+
+    Expression  ir al estado 137
+    Identifier  ir al estado 90
+
+
+Estado 112
+
+   49 Expression: Expression tk_and . Expression
+
+    tk_cifra             desplazar e ir al estado 82
+    tk_identifier        desplazar e ir al estado 4
+    tk_open_parenthesis  desplazar e ir al estado 83
+    tk_this              desplazar e ir al estado 84
+    tk_new               desplazar e ir al estado 85
+    tk_exclamation       desplazar e ir al estado 86
+    tk_true              desplazar e ir al estado 87
+    tk_false             desplazar e ir al estado 88
+
+    Expression  ir al estado 138
+    Identifier  ir al estado 90
+
+
+Estado 113
+
+   51 Expression: Expression tk_plus . Expression
+
+    tk_cifra             desplazar e ir al estado 82
+    tk_identifier        desplazar e ir al estado 4
+    tk_open_parenthesis  desplazar e ir al estado 83
+    tk_this              desplazar e ir al estado 84
+    tk_new               desplazar e ir al estado 85
+    tk_exclamation       desplazar e ir al estado 86
+    tk_true              desplazar e ir al estado 87
+    tk_false             desplazar e ir al estado 88
+
+    Expression  ir al estado 139
+    Identifier  ir al estado 90
+
+
+Estado 114
+
+   52 Expression: Expression tk_minus . Expression
+
+    tk_cifra             desplazar e ir al estado 82
+    tk_identifier        desplazar e ir al estado 4
+    tk_open_parenthesis  desplazar e ir al estado 83
+    tk_this              desplazar e ir al estado 84
+    tk_new               desplazar e ir al estado 85
+    tk_exclamation       desplazar e ir al estado 86
+    tk_true              desplazar e ir al estado 87
+    tk_false             desplazar e ir al estado 88
+
+    Expression  ir al estado 140
+    Identifier  ir al estado 90
+
+
+Estado 115
+
+   53 Expression: Expression tk_multiply . Expression
+
+    tk_cifra             desplazar e ir al estado 82
+    tk_identifier        desplazar e ir al estado 4
+    tk_open_parenthesis  desplazar e ir al estado 83
+    tk_this              desplazar e ir al estado 84
+    tk_new               desplazar e ir al estado 85
+    tk_exclamation       desplazar e ir al estado 86
+    tk_true              desplazar e ir al estado 87
+    tk_false             desplazar e ir al estado 88
+
+    Expression  ir al estado 141
+    Identifier  ir al estado 90
+
+
+Estado 116
+
+   50 Expression: Expression tk_relop . Expression
+
+    tk_cifra             desplazar e ir al estado 82
+    tk_identifier        desplazar e ir al estado 4
+    tk_open_parenthesis  desplazar e ir al estado 83
+    tk_this              desplazar e ir al estado 84
+    tk_new               desplazar e ir al estado 85
+    tk_exclamation       desplazar e ir al estado 86
+    tk_true              desplazar e ir al estado 87
+    tk_false             desplazar e ir al estado 88
+
+    Expression  ir al estado 142
+    Identifier  ir al estado 90
+
+
+Estado 117
+
+   55 Expression: Expression tk_dot . tk_length
+   56           | Expression tk_dot . Identifier tk_open_parenthesis ExpComaExp tk_close_parenthesis
+   57           | Expression tk_dot . Identifier tk_open_parenthesis tk_close_parenthesis
+
+    tk_identifier  desplazar e ir al estado 4
+    tk_length      desplazar e ir al estado 143
+
+    Identifier  ir al estado 144
+
+
+Estado 118
+
+   31 MethodDeclaration: tk_public Type Identifier tk_open_parenthesis tk_close_parenthesis tk_open_bracket tk_return Expression tk_dotcoma . tk_close_bracket
+
+    tk_close_bracket  desplazar e ir al estado 145
+
+
+Estado 119
+
+   30 MethodDeclaration: tk_public Type Identifier tk_open_parenthesis tk_close_parenthesis tk_open_bracket VarDeclarationList tk_return Expression . tk_dotcoma tk_close_bracket
+   49 Expression: Expression . tk_and Expression
+   50           | Expression . tk_relop Expression
+   51           | Expression . tk_plus Expression
+   52           | Expression . tk_minus Expression
+   53           | Expression . tk_multiply Expression
+   54           | Expression . tk_open_sbracket Expression tk_close_sbracket
+   55           | Expression . tk_dot tk_length
+   56           | Expression . tk_dot Identifier tk_open_parenthesis ExpComaExp tk_close_parenthesis
+   57           | Expression . tk_dot Identifier tk_open_parenthesis tk_close_parenthesis
+
+    tk_open_sbracket  desplazar e ir al estado 111
+    tk_and            desplazar e ir al estado 112
+    tk_plus           desplazar e ir al estado 113
+    tk_minus          desplazar e ir al estado 114
+    tk_multiply       desplazar e ir al estado 115
+    tk_relop          desplazar e ir al estado 116
+    tk_dot            desplazar e ir al estado 117
+    tk_dotcoma        desplazar e ir al estado 146
+
+
+Estado 120
+
+   26 MethodDeclaration: tk_public Type Identifier tk_open_parenthesis tk_close_parenthesis tk_open_bracket VarDeclarationList StatementList tk_return . Expression tk_dotcoma tk_close_bracket
+
+    tk_cifra             desplazar e ir al estado 82
+    tk_identifier        desplazar e ir al estado 4
+    tk_open_parenthesis  desplazar e ir al estado 83
+    tk_this              desplazar e ir al estado 84
+    tk_new               desplazar e ir al estado 85
+    tk_exclamation       desplazar e ir al estado 86
+    tk_true              desplazar e ir al estado 87
+    tk_false             desplazar e ir al estado 88
+
+    Expression  ir al estado 147
+    Identifier  ir al estado 90
+
+
+Estado 121
+
+   27 MethodDeclaration: tk_public Type Identifier tk_open_parenthesis tk_close_parenthesis tk_open_bracket StatementList tk_return Expression . tk_dotcoma tk_close_bracket
+   49 Expression: Expression . tk_and Expression
+   50           | Expression . tk_relop Expression
+   51           | Expression . tk_plus Expression
+   52           | Expression . tk_minus Expression
+   53           | Expression . tk_multiply Expression
+   54           | Expression . tk_open_sbracket Expression tk_close_sbracket
+   55           | Expression . tk_dot tk_length
+   56           | Expression . tk_dot Identifier tk_open_parenthesis ExpComaExp tk_close_parenthesis
+   57           | Expression . tk_dot Identifier tk_open_parenthesis tk_close_parenthesis
+
+    tk_open_sbracket  desplazar e ir al estado 111
+    tk_and            desplazar e ir al estado 112
+    tk_plus           desplazar e ir al estado 113
+    tk_minus          desplazar e ir al estado 114
+    tk_multiply       desplazar e ir al estado 115
+    tk_relop          desplazar e ir al estado 116
+    tk_dot            desplazar e ir al estado 117
+    tk_dotcoma        desplazar e ir al estado 148
+
+
+Estado 122
+
+   44 Statement: Identifier tk_open_sbracket Expression . tk_close_sbracket tk_equals Expression tk_dotcoma
+   49 Expression: Expression . tk_and Expression
+   50           | Expression . tk_relop Expression
+   51           | Expression . tk_plus Expression
+   52           | Expression . tk_minus Expression
+   53           | Expression . tk_multiply Expression
+   54           | Expression . tk_open_sbracket Expression tk_close_sbracket
+   55           | Expression . tk_dot tk_length
+   56           | Expression . tk_dot Identifier tk_open_parenthesis ExpComaExp tk_close_parenthesis
+   57           | Expression . tk_dot Identifier tk_open_parenthesis tk_close_parenthesis
+
+    tk_open_sbracket   desplazar e ir al estado 111
+    tk_close_sbracket  desplazar e ir al estado 149
+    tk_and             desplazar e ir al estado 112
+    tk_plus            desplazar e ir al estado 113
+    tk_minus           desplazar e ir al estado 114
+    tk_multiply        desplazar e ir al estado 115
+    tk_relop           desplazar e ir al estado 116
+    tk_dot             desplazar e ir al estado 117
+
+
+Estado 123
+
+   43 Statement: Identifier tk_equals Expression . tk_dotcoma
+   49 Expression: Expression . tk_and Expression
+   50           | Expression . tk_relop Expression
+   51           | Expression . tk_plus Expression
+   52           | Expression . tk_minus Expression
+   53           | Expression . tk_multiply Expression
+   54           | Expression . tk_open_sbracket Expression tk_close_sbracket
+   55           | Expression . tk_dot tk_length
+   56           | Expression . tk_dot Identifier tk_open_parenthesis ExpComaExp tk_close_parenthesis
+   57           | Expression . tk_dot Identifier tk_open_parenthesis tk_close_parenthesis
+
+    tk_open_sbracket  desplazar e ir al estado 111
+    tk_and            desplazar e ir al estado 112
+    tk_plus           desplazar e ir al estado 113
+    tk_minus          desplazar e ir al estado 114
+    tk_multiply       desplazar e ir al estado 115
+    tk_relop          desplazar e ir al estado 116
+    tk_dot            desplazar e ir al estado 117
+    tk_dotcoma        desplazar e ir al estado 150
+
+
+Estado 124
+
+   29 MethodDeclaration: tk_public Type Identifier tk_open_parenthesis TypeIdComaTypeId tk_close_parenthesis tk_open_bracket tk_return Expression . tk_dotcoma tk_close_bracket
+   49 Expression: Expression . tk_and Expression
+   50           | Expression . tk_relop Expression
+   51           | Expression . tk_plus Expression
+   52           | Expression . tk_minus Expression
+   53           | Expression . tk_multiply Expression
+   54           | Expression . tk_open_sbracket Expression tk_close_sbracket
+   55           | Expression . tk_dot tk_length
+   56           | Expression . tk_dot Identifier tk_open_parenthesis ExpComaExp tk_close_parenthesis
+   57           | Expression . tk_dot Identifier tk_open_parenthesis tk_close_parenthesis
+
+    tk_open_sbracket  desplazar e ir al estado 111
+    tk_and            desplazar e ir al estado 112
+    tk_plus           desplazar e ir al estado 113
+    tk_minus          desplazar e ir al estado 114
+    tk_multiply       desplazar e ir al estado 115
+    tk_relop          desplazar e ir al estado 116
+    tk_dot            desplazar e ir al estado 117
+    tk_dotcoma        desplazar e ir al estado 151
+
+
+Estado 125
+
+   28 MethodDeclaration: tk_public Type Identifier tk_open_parenthesis TypeIdComaTypeId tk_close_parenthesis tk_open_bracket VarDeclarationList tk_return . Expression tk_dotcoma tk_close_bracket
+
+    tk_cifra             desplazar e ir al estado 82
+    tk_identifier        desplazar e ir al estado 4
+    tk_open_parenthesis  desplazar e ir al estado 83
+    tk_this              desplazar e ir al estado 84
+    tk_new               desplazar e ir al estado 85
+    tk_exclamation       desplazar e ir al estado 86
+    tk_true              desplazar e ir al estado 87
+    tk_false             desplazar e ir al estado 88
+
+    Expression  ir al estado 152
+    Identifier  ir al estado 90
+
+
+Estado 126
+
+   24 MethodDeclaration: tk_public Type Identifier tk_open_parenthesis TypeIdComaTypeId tk_close_parenthesis tk_open_bracket VarDeclarationList StatementList . tk_return Expression tk_dotcoma tk_close_bracket
+   37 StatementList: StatementList . Statement
+
+    tk_identifier    desplazar e ir al estado 4
+    tk_open_bracket  desplazar e ir al estado 63
+    tk_if            desplazar e ir al estado 64
+    tk_while         desplazar e ir al estado 65
+    tk_sop           desplazar e ir al estado 66
+    tk_return        desplazar e ir al estado 153
+
+    Statement   ir al estado 94
+    Identifier  ir al estado 78
+
+
+Estado 127
+
+   25 MethodDeclaration: tk_public Type Identifier tk_open_parenthesis TypeIdComaTypeId tk_close_parenthesis tk_open_bracket StatementList tk_return . Expression tk_dotcoma tk_close_bracket
+
+    tk_cifra             desplazar e ir al estado 82
+    tk_identifier        desplazar e ir al estado 4
+    tk_open_parenthesis  desplazar e ir al estado 83
+    tk_this              desplazar e ir al estado 84
+    tk_new               desplazar e ir al estado 85
+    tk_exclamation       desplazar e ir al estado 86
+    tk_true              desplazar e ir al estado 87
+    tk_false             desplazar e ir al estado 88
+
+    Expression  ir al estado 154
+    Identifier  ir al estado 90
+
+
+Estado 128
+
+   20 ComaTypeId: tk_coma Type Identifier .
+
+    $default  reduce usando la regla 20 (ComaTypeId)
+
+
+Estado 129
+
+   21 ComaTypeId: ComaTypeId tk_coma Type . Identifier
+
+    tk_identifier  desplazar e ir al estado 4
+
+    Identifier  ir al estado 155
+
+
+Estado 130
+
+    3 MainClass: tk_class Identifier tk_open_bracket tk_public tk_static tk_void tk_main tk_open_parenthesis tk_var_String tk_open_sbracket tk_close_sbracket Identifier tk_close_parenthesis tk_open_bracket . Statement tk_close_bracket tk_close_bracket
+
+    tk_identifier    desplazar e ir al estado 4
+    tk_open_bracket  desplazar e ir al estado 63
+    tk_if            desplazar e ir al estado 64
+    tk_while         desplazar e ir al estado 65
+    tk_sop           desplazar e ir al estado 66
+
+    Statement   ir al estado 156
+    Identifier  ir al estado 78
+
+
+Estado 131
+
+   40 Statement: tk_if tk_open_parenthesis Expression tk_close_parenthesis . Statement tk_else Statement
+
+    tk_identifier    desplazar e ir al estado 4
+    tk_open_bracket  desplazar e ir al estado 63
+    tk_if            desplazar e ir al estado 64
+    tk_while         desplazar e ir al estado 65
+    tk_sop           desplazar e ir al estado 66
+
+    Statement   ir al estado 157
+    Identifier  ir al estado 78
+
+
+Estado 132
+
+   41 Statement: tk_while tk_open_parenthesis Expression tk_close_parenthesis . Statement
+
+    tk_identifier    desplazar e ir al estado 4
+    tk_open_bracket  desplazar e ir al estado 63
+    tk_if            desplazar e ir al estado 64
+    tk_while         desplazar e ir al estado 65
+    tk_sop           desplazar e ir al estado 66
+
+    Statement   ir al estado 158
+    Identifier  ir al estado 78
+
+
+Estado 133
+
+   42 Statement: tk_sop tk_open_parenthesis Expression tk_close_parenthesis . tk_dotcoma
+
+    tk_dotcoma  desplazar e ir al estado 159
+
+
+Estado 134
+
+   66 Expression: tk_open_parenthesis Expression tk_close_parenthesis .
+
+    $default  reduce usando la regla 66 (Expression)
+
+
+Estado 135
+
+   63 Expression: tk_new tk_type_int tk_open_sbracket . Expression tk_close_sbracket
+
+    tk_cifra             desplazar e ir al estado 82
+    tk_identifier        desplazar e ir al estado 4
+    tk_open_parenthesis  desplazar e ir al estado 83
+    tk_this              desplazar e ir al estado 84
+    tk_new               desplazar e ir al estado 85
+    tk_exclamation       desplazar e ir al estado 86
+    tk_true              desplazar e ir al estado 87
+    tk_false             desplazar e ir al estado 88
+
+    Expression  ir al estado 160
+    Identifier  ir al estado 90
+
+
+Estado 136
+
+   64 Expression: tk_new Identifier tk_open_parenthesis . tk_close_parenthesis
+
+    tk_close_parenthesis  desplazar e ir al estado 161
+
+
+Estado 137
+
+   49 Expression: Expression . tk_and Expression
+   50           | Expression . tk_relop Expression
+   51           | Expression . tk_plus Expression
+   52           | Expression . tk_minus Expression
+   53           | Expression . tk_multiply Expression
+   54           | Expression . tk_open_sbracket Expression tk_close_sbracket
+   54           | Expression tk_open_sbracket Expression . tk_close_sbracket
+   55           | Expression . tk_dot tk_length
+   56           | Expression . tk_dot Identifier tk_open_parenthesis ExpComaExp tk_close_parenthesis
+   57           | Expression . tk_dot Identifier tk_open_parenthesis tk_close_parenthesis
+
+    tk_open_sbracket   desplazar e ir al estado 111
+    tk_close_sbracket  desplazar e ir al estado 162
+    tk_and             desplazar e ir al estado 112
+    tk_plus            desplazar e ir al estado 113
+    tk_minus           desplazar e ir al estado 114
+    tk_multiply        desplazar e ir al estado 115
+    tk_relop           desplazar e ir al estado 116
+    tk_dot             desplazar e ir al estado 117
+
+
+Estado 138
+
+   49 Expression: Expression . tk_and Expression
+   49           | Expression tk_and Expression .
+   50           | Expression . tk_relop Expression
+   51           | Expression . tk_plus Expression
+   52           | Expression . tk_minus Expression
+   53           | Expression . tk_multiply Expression
+   54           | Expression . tk_open_sbracket Expression tk_close_sbracket
+   55           | Expression . tk_dot tk_length
+   56           | Expression . tk_dot Identifier tk_open_parenthesis ExpComaExp tk_close_parenthesis
+   57           | Expression . tk_dot Identifier tk_open_parenthesis tk_close_parenthesis
+
+    tk_plus      desplazar e ir al estado 113
+    tk_minus     desplazar e ir al estado 114
+    tk_multiply  desplazar e ir al estado 115
+    tk_relop     desplazar e ir al estado 116
+    tk_dot       desplazar e ir al estado 117
+
+    $default  reduce usando la regla 49 (Expression)
+
+
+Estado 139
+
+   49 Expression: Expression . tk_and Expression
+   50           | Expression . tk_relop Expression
+   51           | Expression . tk_plus Expression
+   51           | Expression tk_plus Expression .
+   52           | Expression . tk_minus Expression
+   53           | Expression . tk_multiply Expression
+   54           | Expression . tk_open_sbracket Expression tk_close_sbracket
+   55           | Expression . tk_dot tk_length
+   56           | Expression . tk_dot Identifier tk_open_parenthesis ExpComaExp tk_close_parenthesis
+   57           | Expression . tk_dot Identifier tk_open_parenthesis tk_close_parenthesis
+
+    tk_minus     desplazar e ir al estado 114
+    tk_multiply  desplazar e ir al estado 115
+    tk_relop     desplazar e ir al estado 116
+    tk_dot       desplazar e ir al estado 117
+
+    $default  reduce usando la regla 51 (Expression)
+
+
+Estado 140
+
+   49 Expression: Expression . tk_and Expression
+   50           | Expression . tk_relop Expression
+   51           | Expression . tk_plus Expression
+   52           | Expression . tk_minus Expression
+   52           | Expression tk_minus Expression .
+   53           | Expression . tk_multiply Expression
+   54           | Expression . tk_open_sbracket Expression tk_close_sbracket
+   55           | Expression . tk_dot tk_length
+   56           | Expression . tk_dot Identifier tk_open_parenthesis ExpComaExp tk_close_parenthesis
+   57           | Expression . tk_dot Identifier tk_open_parenthesis tk_close_parenthesis
+
+    tk_multiply  desplazar e ir al estado 115
+    tk_relop     desplazar e ir al estado 116
+    tk_dot       desplazar e ir al estado 117
+
+    $default  reduce usando la regla 52 (Expression)
+
+
+Estado 141
+
+   49 Expression: Expression . tk_and Expression
+   50           | Expression . tk_relop Expression
+   51           | Expression . tk_plus Expression
+   52           | Expression . tk_minus Expression
+   53           | Expression . tk_multiply Expression
+   53           | Expression tk_multiply Expression .
+   54           | Expression . tk_open_sbracket Expression tk_close_sbracket
+   55           | Expression . tk_dot tk_length
+   56           | Expression . tk_dot Identifier tk_open_parenthesis ExpComaExp tk_close_parenthesis
+   57           | Expression . tk_dot Identifier tk_open_parenthesis tk_close_parenthesis
+
+    tk_relop  desplazar e ir al estado 116
+    tk_dot    desplazar e ir al estado 117
+
+    $default  reduce usando la regla 53 (Expression)
+
+
+Estado 142
+
+   49 Expression: Expression . tk_and Expression
+   50           | Expression . tk_relop Expression
+   50           | Expression tk_relop Expression .
+   51           | Expression . tk_plus Expression
+   52           | Expression . tk_minus Expression
+   53           | Expression . tk_multiply Expression
+   54           | Expression . tk_open_sbracket Expression tk_close_sbracket
+   55           | Expression . tk_dot tk_length
+   56           | Expression . tk_dot Identifier tk_open_parenthesis ExpComaExp tk_close_parenthesis
+   57           | Expression . tk_dot Identifier tk_open_parenthesis tk_close_parenthesis
+
+    tk_dot  desplazar e ir al estado 117
+
+    $default  reduce usando la regla 50 (Expression)
+
+
+Estado 143
+
+   55 Expression: Expression tk_dot tk_length .
+
+    $default  reduce usando la regla 55 (Expression)
+
+
+Estado 144
+
+   56 Expression: Expression tk_dot Identifier . tk_open_parenthesis ExpComaExp tk_close_parenthesis
+   57           | Expression tk_dot Identifier . tk_open_parenthesis tk_close_parenthesis
+
+    tk_open_parenthesis  desplazar e ir al estado 163
+
+
+Estado 145
+
+   31 MethodDeclaration: tk_public Type Identifier tk_open_parenthesis tk_close_parenthesis tk_open_bracket tk_return Expression tk_dotcoma tk_close_bracket .
+
+    $default  reduce usando la regla 31 (MethodDeclaration)
+
+
+Estado 146
+
+   30 MethodDeclaration: tk_public Type Identifier tk_open_parenthesis tk_close_parenthesis tk_open_bracket VarDeclarationList tk_return Expression tk_dotcoma . tk_close_bracket
+
+    tk_close_bracket  desplazar e ir al estado 164
+
+
+Estado 147
+
+   26 MethodDeclaration: tk_public Type Identifier tk_open_parenthesis tk_close_parenthesis tk_open_bracket VarDeclarationList StatementList tk_return Expression . tk_dotcoma tk_close_bracket
+   49 Expression: Expression . tk_and Expression
+   50           | Expression . tk_relop Expression
+   51           | Expression . tk_plus Expression
+   52           | Expression . tk_minus Expression
+   53           | Expression . tk_multiply Expression
+   54           | Expression . tk_open_sbracket Expression tk_close_sbracket
+   55           | Expression . tk_dot tk_length
+   56           | Expression . tk_dot Identifier tk_open_parenthesis ExpComaExp tk_close_parenthesis
+   57           | Expression . tk_dot Identifier tk_open_parenthesis tk_close_parenthesis
+
+    tk_open_sbracket  desplazar e ir al estado 111
+    tk_and            desplazar e ir al estado 112
+    tk_plus           desplazar e ir al estado 113
+    tk_minus          desplazar e ir al estado 114
+    tk_multiply       desplazar e ir al estado 115
+    tk_relop          desplazar e ir al estado 116
+    tk_dot            desplazar e ir al estado 117
+    tk_dotcoma        desplazar e ir al estado 165
+
+
+Estado 148
+
+   27 MethodDeclaration: tk_public Type Identifier tk_open_parenthesis tk_close_parenthesis tk_open_bracket StatementList tk_return Expression tk_dotcoma . tk_close_bracket
+
+    tk_close_bracket  desplazar e ir al estado 166
+
+
+Estado 149
+
+   44 Statement: Identifier tk_open_sbracket Expression tk_close_sbracket . tk_equals Expression tk_dotcoma
+
+    tk_equals  desplazar e ir al estado 167
+
+
+Estado 150
+
+   43 Statement: Identifier tk_equals Expression tk_dotcoma .
+
+    $default  reduce usando la regla 43 (Statement)
+
+
+Estado 151
+
+   29 MethodDeclaration: tk_public Type Identifier tk_open_parenthesis TypeIdComaTypeId tk_close_parenthesis tk_open_bracket tk_return Expression tk_dotcoma . tk_close_bracket
+
+    tk_close_bracket  desplazar e ir al estado 168
+
+
+Estado 152
+
+   28 MethodDeclaration: tk_public Type Identifier tk_open_parenthesis TypeIdComaTypeId tk_close_parenthesis tk_open_bracket VarDeclarationList tk_return Expression . tk_dotcoma tk_close_bracket
+   49 Expression: Expression . tk_and Expression
+   50           | Expression . tk_relop Expression
+   51           | Expression . tk_plus Expression
+   52           | Expression . tk_minus Expression
+   53           | Expression . tk_multiply Expression
+   54           | Expression . tk_open_sbracket Expression tk_close_sbracket
+   55           | Expression . tk_dot tk_length
+   56           | Expression . tk_dot Identifier tk_open_parenthesis ExpComaExp tk_close_parenthesis
+   57           | Expression . tk_dot Identifier tk_open_parenthesis tk_close_parenthesis
+
+    tk_open_sbracket  desplazar e ir al estado 111
+    tk_and            desplazar e ir al estado 112
+    tk_plus           desplazar e ir al estado 113
+    tk_minus          desplazar e ir al estado 114
+    tk_multiply       desplazar e ir al estado 115
+    tk_relop          desplazar e ir al estado 116
+    tk_dot            desplazar e ir al estado 117
+    tk_dotcoma        desplazar e ir al estado 169
+
+
+Estado 153
+
+   24 MethodDeclaration: tk_public Type Identifier tk_open_parenthesis TypeIdComaTypeId tk_close_parenthesis tk_open_bracket VarDeclarationList StatementList tk_return . Expression tk_dotcoma tk_close_bracket
+
+    tk_cifra             desplazar e ir al estado 82
+    tk_identifier        desplazar e ir al estado 4
+    tk_open_parenthesis  desplazar e ir al estado 83
+    tk_this              desplazar e ir al estado 84
+    tk_new               desplazar e ir al estado 85
+    tk_exclamation       desplazar e ir al estado 86
+    tk_true              desplazar e ir al estado 87
+    tk_false             desplazar e ir al estado 88
+
+    Expression  ir al estado 170
+    Identifier  ir al estado 90
+
+
+Estado 154
+
+   25 MethodDeclaration: tk_public Type Identifier tk_open_parenthesis TypeIdComaTypeId tk_close_parenthesis tk_open_bracket StatementList tk_return Expression . tk_dotcoma tk_close_bracket
+   49 Expression: Expression . tk_and Expression
+   50           | Expression . tk_relop Expression
+   51           | Expression . tk_plus Expression
+   52           | Expression . tk_minus Expression
+   53           | Expression . tk_multiply Expression
+   54           | Expression . tk_open_sbracket Expression tk_close_sbracket
+   55           | Expression . tk_dot tk_length
+   56           | Expression . tk_dot Identifier tk_open_parenthesis ExpComaExp tk_close_parenthesis
+   57           | Expression . tk_dot Identifier tk_open_parenthesis tk_close_parenthesis
+
+    tk_open_sbracket  desplazar e ir al estado 111
+    tk_and            desplazar e ir al estado 112
+    tk_plus           desplazar e ir al estado 113
+    tk_minus          desplazar e ir al estado 114
+    tk_multiply       desplazar e ir al estado 115
+    tk_relop          desplazar e ir al estado 116
+    tk_dot            desplazar e ir al estado 117
+    tk_dotcoma        desplazar e ir al estado 171
+
+
+Estado 155
+
+   21 ComaTypeId: ComaTypeId tk_coma Type Identifier .
+
+    $default  reduce usando la regla 21 (ComaTypeId)
+
+
+Estado 156
+
+    3 MainClass: tk_class Identifier tk_open_bracket tk_public tk_static tk_void tk_main tk_open_parenthesis tk_var_String tk_open_sbracket tk_close_sbracket Identifier tk_close_parenthesis tk_open_bracket Statement . tk_close_bracket tk_close_bracket
+
+    tk_close_bracket  desplazar e ir al estado 172
+
+
+Estado 157
+
+   40 Statement: tk_if tk_open_parenthesis Expression tk_close_parenthesis Statement . tk_else Statement
+
+    tk_else  desplazar e ir al estado 173
+
+
+Estado 158
+
+   41 Statement: tk_while tk_open_parenthesis Expression tk_close_parenthesis Statement .
+
+    $default  reduce usando la regla 41 (Statement)
+
+
+Estado 159
+
+   42 Statement: tk_sop tk_open_parenthesis Expression tk_close_parenthesis tk_dotcoma .
+
+    $default  reduce usando la regla 42 (Statement)
+
+
+Estado 160
+
+   49 Expression: Expression . tk_and Expression
+   50           | Expression . tk_relop Expression
+   51           | Expression . tk_plus Expression
+   52           | Expression . tk_minus Expression
+   53           | Expression . tk_multiply Expression
+   54           | Expression . tk_open_sbracket Expression tk_close_sbracket
+   55           | Expression . tk_dot tk_length
+   56           | Expression . tk_dot Identifier tk_open_parenthesis ExpComaExp tk_close_parenthesis
+   57           | Expression . tk_dot Identifier tk_open_parenthesis tk_close_parenthesis
+   63           | tk_new tk_type_int tk_open_sbracket Expression . tk_close_sbracket
+
+    tk_open_sbracket   desplazar e ir al estado 111
+    tk_close_sbracket  desplazar e ir al estado 174
+    tk_and             desplazar e ir al estado 112
+    tk_plus            desplazar e ir al estado 113
+    tk_minus           desplazar e ir al estado 114
+    tk_multiply        desplazar e ir al estado 115
+    tk_relop           desplazar e ir al estado 116
+    tk_dot             desplazar e ir al estado 117
+
+
+Estado 161
+
+   64 Expression: tk_new Identifier tk_open_parenthesis tk_close_parenthesis .
+
+    $default  reduce usando la regla 64 (Expression)
+
+
+Estado 162
+
+   54 Expression: Expression tk_open_sbracket Expression tk_close_sbracket .
+
+    $default  reduce usando la regla 54 (Expression)
+
+
+Estado 163
+
+   56 Expression: Expression tk_dot Identifier tk_open_parenthesis . ExpComaExp tk_close_parenthesis
+   57           | Expression tk_dot Identifier tk_open_parenthesis . tk_close_parenthesis
+
+    tk_cifra              desplazar e ir al estado 82
+    tk_identifier         desplazar e ir al estado 4
+    tk_open_parenthesis   desplazar e ir al estado 83
+    tk_close_parenthesis  desplazar e ir al estado 175
+    tk_this               desplazar e ir al estado 84
+    tk_new                desplazar e ir al estado 85
+    tk_exclamation        desplazar e ir al estado 86
+    tk_true               desplazar e ir al estado 87
+    tk_false              desplazar e ir al estado 88
+
+    ExpComaExp  ir al estado 176
+    Expression  ir al estado 177
+    Identifier  ir al estado 90
+
+
+Estado 164
+
+   30 MethodDeclaration: tk_public Type Identifier tk_open_parenthesis tk_close_parenthesis tk_open_bracket VarDeclarationList tk_return Expression tk_dotcoma tk_close_bracket .
+
+    $default  reduce usando la regla 30 (MethodDeclaration)
+
+
+Estado 165
+
+   26 MethodDeclaration: tk_public Type Identifier tk_open_parenthesis tk_close_parenthesis tk_open_bracket VarDeclarationList StatementList tk_return Expression tk_dotcoma . tk_close_bracket
+
+    tk_close_bracket  desplazar e ir al estado 178
+
+
+Estado 166
+
+   27 MethodDeclaration: tk_public Type Identifier tk_open_parenthesis tk_close_parenthesis tk_open_bracket StatementList tk_return Expression tk_dotcoma tk_close_bracket .
+
+    $default  reduce usando la regla 27 (MethodDeclaration)
+
+
+Estado 167
+
+   44 Statement: Identifier tk_open_sbracket Expression tk_close_sbracket tk_equals . Expression tk_dotcoma
+
+    tk_cifra             desplazar e ir al estado 82
+    tk_identifier        desplazar e ir al estado 4
+    tk_open_parenthesis  desplazar e ir al estado 83
+    tk_this              desplazar e ir al estado 84
+    tk_new               desplazar e ir al estado 85
+    tk_exclamation       desplazar e ir al estado 86
+    tk_true              desplazar e ir al estado 87
+    tk_false             desplazar e ir al estado 88
+
+    Expression  ir al estado 179
+    Identifier  ir al estado 90
+
+
+Estado 168
+
+   29 MethodDeclaration: tk_public Type Identifier tk_open_parenthesis TypeIdComaTypeId tk_close_parenthesis tk_open_bracket tk_return Expression tk_dotcoma tk_close_bracket .
+
+    $default  reduce usando la regla 29 (MethodDeclaration)
+
+
+Estado 169
+
+   28 MethodDeclaration: tk_public Type Identifier tk_open_parenthesis TypeIdComaTypeId tk_close_parenthesis tk_open_bracket VarDeclarationList tk_return Expression tk_dotcoma . tk_close_bracket
+
+    tk_close_bracket  desplazar e ir al estado 180
+
+
+Estado 170
+
+   24 MethodDeclaration: tk_public Type Identifier tk_open_parenthesis TypeIdComaTypeId tk_close_parenthesis tk_open_bracket VarDeclarationList StatementList tk_return Expression . tk_dotcoma tk_close_bracket
+   49 Expression: Expression . tk_and Expression
+   50           | Expression . tk_relop Expression
+   51           | Expression . tk_plus Expression
+   52           | Expression . tk_minus Expression
+   53           | Expression . tk_multiply Expression
+   54           | Expression . tk_open_sbracket Expression tk_close_sbracket
+   55           | Expression . tk_dot tk_length
+   56           | Expression . tk_dot Identifier tk_open_parenthesis ExpComaExp tk_close_parenthesis
+   57           | Expression . tk_dot Identifier tk_open_parenthesis tk_close_parenthesis
+
+    tk_open_sbracket  desplazar e ir al estado 111
+    tk_and            desplazar e ir al estado 112
+    tk_plus           desplazar e ir al estado 113
+    tk_minus          desplazar e ir al estado 114
+    tk_multiply       desplazar e ir al estado 115
+    tk_relop          desplazar e ir al estado 116
+    tk_dot            desplazar e ir al estado 117
+    tk_dotcoma        desplazar e ir al estado 181
+
+
+Estado 171
+
+   25 MethodDeclaration: tk_public Type Identifier tk_open_parenthesis TypeIdComaTypeId tk_close_parenthesis tk_open_bracket StatementList tk_return Expression tk_dotcoma . tk_close_bracket
+
+    tk_close_bracket  desplazar e ir al estado 182
+
+
+Estado 172
+
+    3 MainClass: tk_class Identifier tk_open_bracket tk_public tk_static tk_void tk_main tk_open_parenthesis tk_var_String tk_open_sbracket tk_close_sbracket Identifier tk_close_parenthesis tk_open_bracket Statement tk_close_bracket . tk_close_bracket
+
+    tk_close_bracket  desplazar e ir al estado 183
+
+
+Estado 173
+
+   40 Statement: tk_if tk_open_parenthesis Expression tk_close_parenthesis Statement tk_else . Statement
+
+    tk_identifier    desplazar e ir al estado 4
+    tk_open_bracket  desplazar e ir al estado 63
+    tk_if            desplazar e ir al estado 64
+    tk_while         desplazar e ir al estado 65
+    tk_sop           desplazar e ir al estado 66
+
+    Statement   ir al estado 184
+    Identifier  ir al estado 78
+
+
+Estado 174
+
+   63 Expression: tk_new tk_type_int tk_open_sbracket Expression tk_close_sbracket .
+
+    $default  reduce usando la regla 63 (Expression)
+
+
+Estado 175
+
+   57 Expression: Expression tk_dot Identifier tk_open_parenthesis tk_close_parenthesis .
+
+    $default  reduce usando la regla 57 (Expression)
+
+
+Estado 176
+
+   56 Expression: Expression tk_dot Identifier tk_open_parenthesis ExpComaExp . tk_close_parenthesis
+
+    tk_close_parenthesis  desplazar e ir al estado 185
+
+
+Estado 177
+
+   47 ExpComaExp: Expression . ComaExp
+   48           | Expression .
+   49 Expression: Expression . tk_and Expression
+   50           | Expression . tk_relop Expression
+   51           | Expression . tk_plus Expression
+   52           | Expression . tk_minus Expression
+   53           | Expression . tk_multiply Expression
+   54           | Expression . tk_open_sbracket Expression tk_close_sbracket
+   55           | Expression . tk_dot tk_length
+   56           | Expression . tk_dot Identifier tk_open_parenthesis ExpComaExp tk_close_parenthesis
+   57           | Expression . tk_dot Identifier tk_open_parenthesis tk_close_parenthesis
+
+    tk_open_sbracket  desplazar e ir al estado 111
+    tk_and            desplazar e ir al estado 112
+    tk_plus           desplazar e ir al estado 113
+    tk_minus          desplazar e ir al estado 114
+    tk_multiply       desplazar e ir al estado 115
+    tk_relop          desplazar e ir al estado 116
+    tk_dot            desplazar e ir al estado 117
+    tk_coma           desplazar e ir al estado 186
+
+    $default  reduce usando la regla 48 (ExpComaExp)
+
+    ComaExp  ir al estado 187
+
+
+Estado 178
+
+   26 MethodDeclaration: tk_public Type Identifier tk_open_parenthesis tk_close_parenthesis tk_open_bracket VarDeclarationList StatementList tk_return Expression tk_dotcoma tk_close_bracket .
+
+    $default  reduce usando la regla 26 (MethodDeclaration)
+
+
+Estado 179
+
+   44 Statement: Identifier tk_open_sbracket Expression tk_close_sbracket tk_equals Expression . tk_dotcoma
+   49 Expression: Expression . tk_and Expression
+   50           | Expression . tk_relop Expression
+   51           | Expression . tk_plus Expression
+   52           | Expression . tk_minus Expression
+   53           | Expression . tk_multiply Expression
+   54           | Expression . tk_open_sbracket Expression tk_close_sbracket
+   55           | Expression . tk_dot tk_length
+   56           | Expression . tk_dot Identifier tk_open_parenthesis ExpComaExp tk_close_parenthesis
+   57           | Expression . tk_dot Identifier tk_open_parenthesis tk_close_parenthesis
+
+    tk_open_sbracket  desplazar e ir al estado 111
+    tk_and            desplazar e ir al estado 112
+    tk_plus           desplazar e ir al estado 113
+    tk_minus          desplazar e ir al estado 114
+    tk_multiply       desplazar e ir al estado 115
+    tk_relop          desplazar e ir al estado 116
+    tk_dot            desplazar e ir al estado 117
+    tk_dotcoma        desplazar e ir al estado 188
+
+
+Estado 180
+
+   28 MethodDeclaration: tk_public Type Identifier tk_open_parenthesis TypeIdComaTypeId tk_close_parenthesis tk_open_bracket VarDeclarationList tk_return Expression tk_dotcoma tk_close_bracket .
+
+    $default  reduce usando la regla 28 (MethodDeclaration)
+
+
+Estado 181
+
+   24 MethodDeclaration: tk_public Type Identifier tk_open_parenthesis TypeIdComaTypeId tk_close_parenthesis tk_open_bracket VarDeclarationList StatementList tk_return Expression tk_dotcoma . tk_close_bracket
+
+    tk_close_bracket  desplazar e ir al estado 189
+
+
+Estado 182
+
+   25 MethodDeclaration: tk_public Type Identifier tk_open_parenthesis TypeIdComaTypeId tk_close_parenthesis tk_open_bracket StatementList tk_return Expression tk_dotcoma tk_close_bracket .
+
+    $default  reduce usando la regla 25 (MethodDeclaration)
+
+
+Estado 183
+
+    3 MainClass: tk_class Identifier tk_open_bracket tk_public tk_static tk_void tk_main tk_open_parenthesis tk_var_String tk_open_sbracket tk_close_sbracket Identifier tk_close_parenthesis tk_open_bracket Statement tk_close_bracket tk_close_bracket .
+
+    $default  reduce usando la regla 3 (MainClass)
+
+
+Estado 184
+
+   40 Statement: tk_if tk_open_parenthesis Expression tk_close_parenthesis Statement tk_else Statement .
+
+    $default  reduce usando la regla 40 (Statement)
+
+
+Estado 185
+
+   56 Expression: Expression tk_dot Identifier tk_open_parenthesis ExpComaExp tk_close_parenthesis .
+
+    $default  reduce usando la regla 56 (Expression)
+
+
+Estado 186
+
+   45 ComaExp: tk_coma . Expression
+
+    tk_cifra             desplazar e ir al estado 82
+    tk_identifier        desplazar e ir al estado 4
+    tk_open_parenthesis  desplazar e ir al estado 83
+    tk_this              desplazar e ir al estado 84
+    tk_new               desplazar e ir al estado 85
+    tk_exclamation       desplazar e ir al estado 86
+    tk_true              desplazar e ir al estado 87
+    tk_false             desplazar e ir al estado 88
+
+    Expression  ir al estado 190
+    Identifier  ir al estado 90
+
+
+Estado 187
+
+   46 ComaExp: ComaExp . tk_coma ComaExp
+   47 ExpComaExp: Expression ComaExp .
+
+    tk_coma  desplazar e ir al estado 191
+
+    $default  reduce usando la regla 47 (ExpComaExp)
+
+
+Estado 188
+
+   44 Statement: Identifier tk_open_sbracket Expression tk_close_sbracket tk_equals Expression tk_dotcoma .
+
+    $default  reduce usando la regla 44 (Statement)
+
+
+Estado 189
+
+   24 MethodDeclaration: tk_public Type Identifier tk_open_parenthesis TypeIdComaTypeId tk_close_parenthesis tk_open_bracket VarDeclarationList StatementList tk_return Expression tk_dotcoma tk_close_bracket .
+
+    $default  reduce usando la regla 24 (MethodDeclaration)
+
+
+Estado 190
+
+   45 ComaExp: tk_coma Expression .
+   49 Expression: Expression . tk_and Expression
+   50           | Expression . tk_relop Expression
+   51           | Expression . tk_plus Expression
+   52           | Expression . tk_minus Expression
+   53           | Expression . tk_multiply Expression
+   54           | Expression . tk_open_sbracket Expression tk_close_sbracket
+   55           | Expression . tk_dot tk_length
+   56           | Expression . tk_dot Identifier tk_open_parenthesis ExpComaExp tk_close_parenthesis
+   57           | Expression . tk_dot Identifier tk_open_parenthesis tk_close_parenthesis
+
+    tk_open_sbracket  desplazar e ir al estado 111
+    tk_and            desplazar e ir al estado 112
+    tk_plus           desplazar e ir al estado 113
+    tk_minus          desplazar e ir al estado 114
+    tk_multiply       desplazar e ir al estado 115
+    tk_relop          desplazar e ir al estado 116
+    tk_dot            desplazar e ir al estado 117
+
+    $default  reduce usando la regla 45 (ComaExp)
+
+
+Estado 191
+
+   46 ComaExp: ComaExp tk_coma . ComaExp
+
+    tk_coma  desplazar e ir al estado 186
+
+    ComaExp  ir al estado 192
+
+
+Estado 192
+
+   46 ComaExp: ComaExp . tk_coma ComaExp
+   46        | ComaExp tk_coma ComaExp .
+
+    $default  reduce usando la regla 46 (ComaExp)

@@ -1,0 +1,26 @@
+"this is a string" this is not a string"
+
+class ExampleProgram {
+    public int Program(int number){
+	   int i ;
+     boolean isTrue;
+     isTrue = number < 1;
+     if (isTrue)
+	    i = 1 ;
+	   else
+      i = number * (1-number);
+     if(i==number)
+      return number;
+	   return i ;
+    }
+}
+
+/*
+ERROR THAT OUR COMPILER DETECTS BECAUSE THEY ARE NOT DEFINED
+*/
+    //Variables starting with a number
+    1VariableExample
+    //It separates correctly when strings dont make sense
+    Try/ing!
+    //Examples of characters not identified
+    : _ , ?

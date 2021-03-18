@@ -1,0 +1,60 @@
+[F] Word class [F] Word identifier Factorial [B] Identifier [F] Word { 
+[F] Word public [F] Word static [F] Word void [F] Word main [F] Word ( [F] Word String String [F] Word [ [F] Word ] [F] Word identifier a [B] Identifier [F] Word ) [F] Word { 
+[F] Word System.out.println [F] Word ( [F] Word new [F] Word identifier Fac [B] Identifier [F] Word ( [F] Word ) [B] Expression - new Identifier () [F] Dot [F] Word identifier ComputeFac [B] Identifier [F] Word ( [F] Number 10 [B] Expression - INTEGER_LITERAL [F] Word ) [B] Expression - Expression.Identifier(Expression,Expression)) [F] Word ) [F] Dot coma [B] Statement - Sout
+[F] Word } 
+[F] Word } [B] Mainclass 
+
+[F] Word class [F] Word identifier Fac [B] Identifier [F] Word { 
+
+[F] Word public [F] Word type_int [F] Word identifier ComputeFac [B] Type - Int [B] Identifier [F] Word ( [F] Word type_int [F] Word identifier num [B] Type - Int [B] Identifier [F] Word ) [F] Word { 
+[F] Word type_int [F] Word identifier num_aux [B] Type - Int [B] Identifier [F] Dot coma [B] VarDeclaration 
+[F] Word if [F] Word ( [F] Word identifier num [B] Identifier [B] Expression - Identifier [F] Word relop < [F] Number 1 [B] Expression - INTEGER_LITERAL [F] Word ) [B] Expression - Relop 
+[F] Word identifier num_aux [B] Identifier [F] Word = [F] Number 1 [B] Expression - INTEGER_LITERAL [F] Dot coma [B] Statement - Equals
+[F] Word else 
+[F] Word identifier num_aux [B] Identifier [F] Word = [F] Word identifier num [B] Identifier [B] Expression - Identifier [F] Word * [F] Word ( [F] Word this [B] Expression - This [F] Dot [F] Word identifier ComputeFac [B] Identifier [F] Word ( [F] Word identifier num [B] Identifier [B] Expression - Identifier [F] Word - [F] Number 1 [B] Expression - INTEGER_LITERAL [F] Word ) [B] Expression - Minus [B] Expression - Expression.Identifier(Expression,Expression)) [F] Word ) [B] Expression - ( Expression ) [F] Dot coma [B] Expression - Multiply [B] Statement - Equals[B] Statement - If
+[F] Word return [F] Word identifier num_aux [B] Identifier [B] Expression - Identifier [F] Dot coma 
+[F] Word } [B] MethodDeclaration 
+
+[F] Word } [B] ClassDeclaration 
+[B] Goal Built a parse-tree:
+Goal:
+  MainClass:
+    Identifier :Factorial
+    Identifier :a
+    ExpressionIdentifier:
+      Identifier :Fac
+      Identifier :ComputeFac
+      ExpComaExp:
+        Integer Literal:$1
+  ClassDeclaration:
+    Identifier :Fac
+    MethodDeclaration:
+      TypeInt:
+      Identifier :ComputeFac
+      TypeId:
+        TypeInt:
+        Identifier :num
+      VarDeclaration:
+        TypeInt:
+        Identifier :num_aux
+      Statement:
+        Expression:
+          Identifier :num
+          Integer Literal:$1
+        Statement equals:
+          Identifier :num_aux
+          Integer Literal:$1
+        Statement equals:
+          Identifier :num_aux
+          ExpressionMult:
+            Identifier :num
+            ExpressionIdentifier:
+              This:
+              Identifier :ComputeFac
+              ExpComaExp:
+                ExpressionMinus:
+                  Identifier :num
+                  Integer Literal:$1
+      Identifier :num_aux
+
+

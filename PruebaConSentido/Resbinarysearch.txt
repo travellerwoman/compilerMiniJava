@@ -1,0 +1,588 @@
+[F] Word class [F] Word identifier BinarySearch [B] Identifier [F] Word { 
+[F] Word public [F] Word static [F] Word void [F] Word main [F] Word ( [F] Word String String [F] Word [ [F] Word ] [F] Word identifier a [B] Identifier [F] Word ) [F] Word { 
+[F] Word System.out.println [F] Word ( [F] Word new [F] Word identifier BS [B] Identifier [F] Word ( [F] Word ) [B] Expression - new Identifier () [F] Dot [F] Word identifier Start [B] Identifier [F] Word ( [F] Number 20 [B] Expression - INTEGER_LITERAL [F] Word ) [B] Expression - Expression.Identifier(Expression,Expression)) [F] Word ) [F] Dot coma [B] Statement - Sout
+[F] Word } 
+[F] Word } [B] Mainclass 
+
+[F] Word class [F] Word identifier BS [B] Identifier [F] Word { 
+[F] Word type_int [F] Word [ [F] Word ] [B] Type - Array [F] Word identifier number [B] Identifier [F] Dot coma [B] VarDeclaration 
+[F] Word type_int [F] Word identifier size [B] Type - Int [B] Identifier [F] Dot coma [B] VarDeclaration 
+
+
+[F] Word public [F] Word type_int [F] Word identifier Start [B] Type - Int [B] Identifier [F] Word ( [F] Word type_int [F] Word identifier sz [B] Type - Int [B] Identifier [F] Word ) [F] Word { 
+[F] Word type_int [F] Word identifier aux01 [B] Type - Int [B] Identifier [F] Dot coma [B] VarDeclaration 
+[F] Word type_int [F] Word identifier aux02 [B] Type - Int [B] Identifier [F] Dot coma [B] VarDeclaration 
+[F] Word identifier aux01 [B] Identifier [F] Word = [F] Word this [B] Expression - This [F] Dot [F] Word identifier Init [B] Identifier [F] Word ( [F] Word identifier sz [B] Identifier [B] Expression - Identifier [F] Word ) [B] Expression - Expression.Identifier(Expression,Expression)) [F] Dot coma [B] Statement - Equals
+[F] Word identifier aux02 [B] Identifier [F] Word = [F] Word this [B] Expression - This [F] Dot [F] Word identifier Print [B] Identifier [F] Word ( [F] Word ) [B] Expression - Expression.Identifier(Expression,Expression)) [F] Dot coma [B] Statement - Equals
+[F] Word if [F] Word ( [F] Word this [B] Expression - This [F] Dot [F] Word identifier Search [B] Identifier [F] Word ( [F] Number 8 [B] Expression - INTEGER_LITERAL [F] Word ) [B] Expression - Expression.Identifier(Expression,Expression)) [F] Word ) [F] Word System.out.println [F] Word ( [F] Number 1 [B] Expression - INTEGER_LITERAL [F] Word ) [F] Dot coma [B] Statement - Sout
+[F] Word else [F] Word System.out.println [F] Word ( [F] Number 0 [B] Expression - INTEGER_LITERAL [F] Word ) [F] Dot coma [B] Statement - Sout[B] Statement - If
+[F] Word if [F] Word ( [F] Word this [B] Expression - This [F] Dot [F] Word identifier Search [B] Identifier [F] Word ( [F] Number 19 [B] Expression - INTEGER_LITERAL [F] Word ) [B] Expression - Expression.Identifier(Expression,Expression)) [F] Word ) [F] Word System.out.println [F] Word ( [F] Number 1 [B] Expression - INTEGER_LITERAL [F] Word ) [F] Dot coma [B] Statement - Sout
+[F] Word else [F] Word System.out.println [F] Word ( [F] Number 0 [B] Expression - INTEGER_LITERAL [F] Word ) [F] Dot coma [B] Statement - Sout[B] Statement - If
+[F] Word if [F] Word ( [F] Word this [B] Expression - This [F] Dot [F] Word identifier Search [B] Identifier [F] Word ( [F] Number 20 [B] Expression - INTEGER_LITERAL [F] Word ) [B] Expression - Expression.Identifier(Expression,Expression)) [F] Word ) [F] Word System.out.println [F] Word ( [F] Number 1 [B] Expression - INTEGER_LITERAL [F] Word ) [F] Dot coma [B] Statement - Sout
+[F] Word else [F] Word System.out.println [F] Word ( [F] Number 0 [B] Expression - INTEGER_LITERAL [F] Word ) [F] Dot coma [B] Statement - Sout[B] Statement - If
+[F] Word if [F] Word ( [F] Word this [B] Expression - This [F] Dot [F] Word identifier Search [B] Identifier [F] Word ( [F] Number 21 [B] Expression - INTEGER_LITERAL [F] Word ) [B] Expression - Expression.Identifier(Expression,Expression)) [F] Word ) [F] Word System.out.println [F] Word ( [F] Number 1 [B] Expression - INTEGER_LITERAL [F] Word ) [F] Dot coma [B] Statement - Sout
+[F] Word else [F] Word System.out.println [F] Word ( [F] Number 0 [B] Expression - INTEGER_LITERAL [F] Word ) [F] Dot coma [B] Statement - Sout[B] Statement - If
+[F] Word if [F] Word ( [F] Word this [B] Expression - This [F] Dot [F] Word identifier Search [B] Identifier [F] Word ( [F] Number 37 [B] Expression - INTEGER_LITERAL [F] Word ) [B] Expression - Expression.Identifier(Expression,Expression)) [F] Word ) [F] Word System.out.println [F] Word ( [F] Number 1 [B] Expression - INTEGER_LITERAL [F] Word ) [F] Dot coma [B] Statement - Sout
+[F] Word else [F] Word System.out.println [F] Word ( [F] Number 0 [B] Expression - INTEGER_LITERAL [F] Word ) [F] Dot coma [B] Statement - Sout[B] Statement - If
+[F] Word if [F] Word ( [F] Word this [B] Expression - This [F] Dot [F] Word identifier Search [B] Identifier [F] Word ( [F] Number 38 [B] Expression - INTEGER_LITERAL [F] Word ) [B] Expression - Expression.Identifier(Expression,Expression)) [F] Word ) [F] Word System.out.println [F] Word ( [F] Number 1 [B] Expression - INTEGER_LITERAL [F] Word ) [F] Dot coma [B] Statement - Sout
+[F] Word else [F] Word System.out.println [F] Word ( [F] Number 0 [B] Expression - INTEGER_LITERAL [F] Word ) [F] Dot coma [B] Statement - Sout[B] Statement - If
+[F] Word if [F] Word ( [F] Word this [B] Expression - This [F] Dot [F] Word identifier Search [B] Identifier [F] Word ( [F] Number 39 [B] Expression - INTEGER_LITERAL [F] Word ) [B] Expression - Expression.Identifier(Expression,Expression)) [F] Word ) [F] Word System.out.println [F] Word ( [F] Number 1 [B] Expression - INTEGER_LITERAL [F] Word ) [F] Dot coma [B] Statement - Sout
+[F] Word else [F] Word System.out.println [F] Word ( [F] Number 0 [B] Expression - INTEGER_LITERAL [F] Word ) [F] Dot coma [B] Statement - Sout[B] Statement - If
+[F] Word if [F] Word ( [F] Word this [B] Expression - This [F] Dot [F] Word identifier Search [B] Identifier [F] Word ( [F] Number 50 [B] Expression - INTEGER_LITERAL [F] Word ) [B] Expression - Expression.Identifier(Expression,Expression)) [F] Word ) [F] Word System.out.println [F] Word ( [F] Number 1 [B] Expression - INTEGER_LITERAL [F] Word ) [F] Dot coma [B] Statement - Sout
+[F] Word else [F] Word System.out.println [F] Word ( [F] Number 0 [B] Expression - INTEGER_LITERAL [F] Word ) [F] Dot coma [B] Statement - Sout[B] Statement - If
+
+[F] Word return [F] Number 999 [B] Expression - INTEGER_LITERAL [F] Dot coma 
+[F] Word } [B] MethodDeclaration 
+
+
+
+[F] Word public [F] Word type_boolean [B] Type - Bool [F] Word identifier Search [B] Identifier [F] Word ( [F] Word type_int [F] Word identifier num [B] Type - Int [B] Identifier [F] Word ) [F] Word { 
+[F] Word type_boolean [B] Type - Bool [F] Word identifier bs01 [B] Identifier [F] Dot coma [B] VarDeclaration 
+[F] Word type_int [F] Word identifier right [B] Type - Int [B] Identifier [F] Dot coma [B] VarDeclaration 
+[F] Word type_int [F] Word identifier left [B] Type - Int [B] Identifier [F] Dot coma [B] VarDeclaration 
+[F] Word type_boolean [B] Type - Bool [F] Word identifier var_cont [B] Identifier [F] Dot coma [B] VarDeclaration 
+[F] Word type_int [F] Word identifier medium [B] Type - Int [B] Identifier [F] Dot coma [B] VarDeclaration 
+[F] Word type_int [F] Word identifier aux01 [B] Type - Int [B] Identifier [F] Dot coma [B] VarDeclaration 
+[F] Word type_int [F] Word identifier nt [B] Type - Int [B] Identifier [F] Dot coma [B] VarDeclaration 
+
+[F] Word identifier aux01 [B] Identifier [F] Word = [F] Number 0 [B] Expression - INTEGER_LITERAL [F] Dot coma [B] Statement - Equals
+[F] Word identifier bs01 [B] Identifier [F] Word = [F] Word false [B] Expression - False [F] Dot coma [B] Statement - Equals
+[F] Word identifier right [B] Identifier [F] Word = [F] Word identifier number [B] Identifier [B] Expression - Identifier [F] Dot [F] Word length [B] Expression - Expression.length [F] Dot coma [B] Statement - Equals
+[F] Word identifier right [B] Identifier [F] Word = [F] Word identifier right [B] Identifier [B] Expression - Identifier [F] Word - [F] Number 1 [B] Expression - INTEGER_LITERAL [F] Dot coma [B] Expression - Minus [B] Statement - Equals
+[F] Word identifier left [B] Identifier [F] Word = [F] Number 0 [B] Expression - INTEGER_LITERAL [F] Dot coma [B] Statement - Equals
+[F] Word identifier var_cont [B] Identifier [F] Word = [F] Word true [B] Expression - True [F] Dot coma [B] Statement - Equals
+[F] Word while [F] Word ( [F] Word identifier var_cont [B] Identifier [B] Expression - Identifier [F] Word ) [F] Word { 
+[F] Word identifier medium [B] Identifier [F] Word = [F] Word identifier left [B] Identifier [B] Expression - Identifier [F] Word + [F] Word identifier right [B] Identifier [B] Expression - Identifier [F] Dot coma [B] Expression - Plus [B] Statement - Equals
+[F] Word identifier medium [B] Identifier [F] Word = [F] Word this [B] Expression - This [F] Dot [F] Word identifier Div [B] Identifier [F] Word ( [F] Word identifier medium [B] Identifier [B] Expression - Identifier [F] Word ) [B] Expression - Expression.Identifier(Expression,Expression)) [F] Dot coma [B] Statement - Equals
+[F] Word identifier aux01 [B] Identifier [F] Word = [F] Word identifier number [B] Identifier [B] Expression - Identifier [F] Word [ [F] Word identifier medium [B] Identifier [B] Expression - Identifier [F] Word ] [F] Dot coma [B] Statement - Equals
+[F] Word if [F] Word ( [F] Word identifier num [B] Identifier [B] Expression - Identifier [F] Word relop < [F] Word identifier aux01 [B] Identifier [B] Expression - Identifier [F] Word ) [B] Expression - Relop [F] Word identifier right [B] Identifier [F] Word = [F] Word identifier medium [B] Identifier [B] Expression - Identifier [F] Word - [F] Number 1 [B] Expression - INTEGER_LITERAL [F] Dot coma [B] Expression - Minus [B] Statement - Equals
+[F] Word else [F] Word identifier left [B] Identifier [F] Word = [F] Word identifier medium [B] Identifier [B] Expression - Identifier [F] Word + [F] Number 1 [B] Expression - INTEGER_LITERAL [F] Dot coma [B] Expression - Plus [B] Statement - Equals[B] Statement - If
+[F] Word if [F] Word ( [F] Word this [B] Expression - This [F] Dot [F] Word identifier Compare [B] Identifier [F] Word ( [F] Word identifier aux01 [B] Identifier [B] Expression - Identifier [F] Coma [F] Word identifier num [B] Identifier [B] Expression - Identifier [F] Word ) [B] Expression - Expression.Identifier(Expression,Expression)) [F] Word ) [F] Word identifier var_cont [B] Identifier [F] Word = [F] Word false [B] Expression - False [F] Dot coma [B] Statement - Equals
+[F] Word else [F] Word identifier var_cont [B] Identifier [F] Word = [F] Word true [B] Expression - True [F] Dot coma [B] Statement - Equals[B] Statement - If
+[F] Word if [F] Word ( [F] Word identifier right [B] Identifier [B] Expression - Identifier [F] Word relop < [F] Word identifier left [B] Identifier [B] Expression - Identifier [F] Word ) [B] Expression - Relop [F] Word identifier var_cont [B] Identifier [F] Word = [F] Word false [B] Expression - False [F] Dot coma [B] Statement - Equals
+[F] Word else [F] Word identifier nt [B] Identifier [F] Word = [F] Number 0 [B] Expression - INTEGER_LITERAL [F] Dot coma [B] Statement - Equals[B] Statement - If
+[F] Word } [B] Statement - {Statement}[B] Statement - While
+
+[F] Word if [F] Word ( [F] Word this [B] Expression - This [F] Dot [F] Word identifier Compare [B] Identifier [F] Word ( [F] Word identifier aux01 [B] Identifier [B] Expression - Identifier [F] Coma [F] Word identifier num [B] Identifier [B] Expression - Identifier [F] Word ) [B] Expression - Expression.Identifier(Expression,Expression)) [F] Word ) [F] Word identifier bs01 [B] Identifier [F] Word = [F] Word true [B] Expression - True [F] Dot coma [B] Statement - Equals
+[F] Word else [F] Word identifier bs01 [B] Identifier [F] Word = [F] Word false [B] Expression - False [F] Dot coma [B] Statement - Equals[B] Statement - If
+[F] Word return [F] Word identifier bs01 [B] Identifier [B] Expression - Identifier [F] Dot coma 
+[F] Word } [B] MethodDeclaration 
+
+
+[F] Word public [F] Word type_int [F] Word identifier Div [B] Type - Int [B] Identifier [F] Word ( [F] Word type_int [F] Word identifier num [B] Type - Int [B] Identifier [F] Word ) [F] Word { 
+[F] Word type_int [F] Word identifier count01 [B] Type - Int [B] Identifier [F] Dot coma [B] VarDeclaration 
+[F] Word type_int [F] Word identifier count02 [B] Type - Int [B] Identifier [F] Dot coma [B] VarDeclaration 
+[F] Word type_int [F] Word identifier aux03 [B] Type - Int [B] Identifier [F] Dot coma [B] VarDeclaration 
+
+[F] Word identifier count01 [B] Identifier [F] Word = [F] Number 0 [B] Expression - INTEGER_LITERAL [F] Dot coma [B] Statement - Equals
+[F] Word identifier count02 [B] Identifier [F] Word = [F] Number 0 [B] Expression - INTEGER_LITERAL [F] Dot coma [B] Statement - Equals
+[F] Word identifier aux03 [B] Identifier [F] Word = [F] Word identifier num [B] Identifier [B] Expression - Identifier [F] Word - [F] Number 1 [B] Expression - INTEGER_LITERAL [F] Dot coma [B] Expression - Minus [B] Statement - Equals
+[F] Word while [F] Word ( [F] Word identifier count02 [B] Identifier [B] Expression - Identifier [F] Word relop < [F] Word identifier aux03 [B] Identifier [B] Expression - Identifier [F] Word ) [B] Expression - Relop [F] Word { 
+[F] Word identifier count01 [B] Identifier [F] Word = [F] Word identifier count01 [B] Identifier [B] Expression - Identifier [F] Word + [F] Number 1 [B] Expression - INTEGER_LITERAL [F] Dot coma [B] Expression - Plus [B] Statement - Equals
+[F] Word identifier count02 [B] Identifier [F] Word = [F] Word identifier count02 [B] Identifier [B] Expression - Identifier [F] Word + [F] Number 2 [B] Expression - INTEGER_LITERAL [F] Dot coma [B] Expression - Plus [B] Statement - Equals
+[F] Word } [B] Statement - {Statement}[B] Statement - While
+[F] Word return [F] Word identifier count01 [B] Identifier [B] Expression - Identifier [F] Dot coma 
+[F] Word } [B] MethodDeclaration 
+
+
+
+[F] Word public [F] Word type_boolean [B] Type - Bool [F] Word identifier Compare [B] Identifier [F] Word ( [F] Word type_int [F] Word identifier num1 [B] Type - Int [B] Identifier [F] Coma [F] Word type_int [F] Word identifier num2 [B] Type - Int [B] Identifier [F] Word ) [F] Word { 
+[F] Word type_boolean [B] Type - Bool [F] Word identifier retval [B] Identifier [F] Dot coma [B] VarDeclaration 
+[F] Word type_int [F] Word identifier aux02 [B] Type - Int [B] Identifier [F] Dot coma [B] VarDeclaration 
+
+[F] Word identifier retval [B] Identifier [F] Word = [F] Word false [B] Expression - False [F] Dot coma [B] Statement - Equals
+[F] Word identifier aux02 [B] Identifier [F] Word = [F] Word identifier num2 [B] Identifier [B] Expression - Identifier [F] Word + [F] Number 1 [B] Expression - INTEGER_LITERAL [F] Dot coma [B] Expression - Plus [B] Statement - Equals
+[F] Word if [F] Word ( [F] Word identifier num1 [B] Identifier [B] Expression - Identifier [F] Word relop < [F] Word identifier num2 [B] Identifier [B] Expression - Identifier [F] Word ) [B] Expression - Relop [F] Word identifier retval [B] Identifier [F] Word = [F] Word false [B] Expression - False [F] Dot coma [B] Statement - Equals
+[F] Word else [F] Word if [F] Word ( [F] Word exclamation [F] Word ( [F] Word identifier num1 [B] Identifier [B] Expression - Identifier [F] Word relop < [F] Word identifier aux02 [B] Identifier [B] Expression - Identifier [F] Word ) [B] Expression - Relop [B] Expression - ( Expression ) [F] Word ) [B] Expression - ! Expression [F] Word identifier retval [B] Identifier [F] Word = [F] Word false [B] Expression - False [F] Dot coma [B] Statement - Equals
+[F] Word else [F] Word identifier retval [B] Identifier [F] Word = [F] Word true [B] Expression - True [F] Dot coma [B] Statement - Equals[B] Statement - If[B] Statement - If
+[F] Word return [F] Word identifier retval [B] Identifier [B] Expression - Identifier [F] Dot coma 
+[F] Word } [B] MethodDeclaration 
+
+
+[F] Word public [F] Word type_int [F] Word identifier Print [B] Type - Int [B] Identifier [F] Word ( [F] Word ) [F] Word { 
+[F] Word type_int [F] Word identifier j [B] Type - Int [B] Identifier [F] Dot coma [B] VarDeclaration 
+
+[F] Word identifier j [B] Identifier [F] Word = [F] Number 1 [B] Expression - INTEGER_LITERAL [F] Dot coma [B] Statement - Equals
+[F] Word while [F] Word ( [F] Word identifier j [B] Identifier [B] Expression - Identifier [F] Word relop < [F] Word ( [F] Word identifier size [B] Identifier [B] Expression - Identifier [F] Word ) [B] Expression - ( Expression ) [F] Word ) [B] Expression - Relop [F] Word { 
+[F] Word System.out.println [F] Word ( [F] Word identifier number [B] Identifier [B] Expression - Identifier [F] Word [ [F] Word identifier j [B] Identifier [B] Expression - Identifier [F] Word ] [F] Word ) [F] Dot coma [B] Statement - Sout
+[F] Word identifier j [B] Identifier [F] Word = [F] Word identifier j [B] Identifier [B] Expression - Identifier [F] Word + [F] Number 1 [B] Expression - INTEGER_LITERAL [F] Dot coma [B] Expression - Plus [B] Statement - Equals
+[F] Word } [B] Statement - {Statement}[B] Statement - While
+[F] Word System.out.println [F] Word ( [F] Number 99999 [B] Expression - INTEGER_LITERAL [F] Word ) [F] Dot coma [B] Statement - Sout
+[F] Word return [F] Number 0 [B] Expression - INTEGER_LITERAL [F] Dot coma 
+[F] Word } [B] MethodDeclaration 
+
+
+[F] Word public [F] Word type_int [F] Word identifier Init [B] Type - Int [B] Identifier [F] Word ( [F] Word type_int [F] Word identifier sz [B] Type - Int [B] Identifier [F] Word ) [F] Word { 
+[F] Word type_int [F] Word identifier j [B] Type - Int [B] Identifier [F] Dot coma [B] VarDeclaration 
+[F] Word type_int [F] Word identifier k [B] Type - Int [B] Identifier [F] Dot coma [B] VarDeclaration 
+[F] Word type_int [F] Word identifier aux02 [B] Type - Int [B] Identifier [F] Dot coma [B] VarDeclaration 
+[F] Word type_int [F] Word identifier aux01 [B] Type - Int [B] Identifier [F] Dot coma [B] VarDeclaration 
+
+[F] Word identifier size [B] Identifier [F] Word = [F] Word identifier sz [B] Identifier [B] Expression - Identifier [F] Dot coma [B] Statement - Equals
+[F] Word identifier number [B] Identifier [F] Word = [F] Word new [F] Word type_int [F] Word [ [F] Word identifier sz [B] Identifier [B] Expression - Identifier [F] Word ] [B] Expression - new int [ Expresssion ] [F] Dot coma [B] Statement - Equals
+
+[F] Word identifier j [B] Identifier [F] Word = [F] Number 1 [B] Expression - INTEGER_LITERAL [F] Dot coma [B] Statement - Equals
+[F] Word identifier k [B] Identifier [F] Word = [F] Word identifier size [B] Identifier [B] Expression - Identifier [F] Word + [F] Number 1 [B] Expression - INTEGER_LITERAL [F] Dot coma [B] Expression - Plus [B] Statement - Equals
+[F] Word while [F] Word ( [F] Word identifier j [B] Identifier [B] Expression - Identifier [F] Word relop < [F] Word ( [F] Word identifier size [B] Identifier [B] Expression - Identifier [F] Word ) [B] Expression - ( Expression ) [F] Word ) [B] Expression - Relop [F] Word { 
+[F] Word identifier aux01 [B] Identifier [F] Word = [F] Number 2 [B] Expression - INTEGER_LITERAL [F] Word * [F] Word identifier j [B] Identifier [B] Expression - Identifier [F] Dot coma [B] Expression - Multiply [B] Statement - Equals
+[F] Word identifier aux02 [B] Identifier [F] Word = [F] Word identifier k [B] Identifier [B] Expression - Identifier [F] Word - [F] Number 3 [B] Expression - INTEGER_LITERAL [F] Dot coma [B] Expression - Minus [B] Statement - Equals
+[F] Word identifier number [B] Identifier [F] Word [ [F] Word identifier j [B] Identifier [B] Expression - Identifier [F] Word ] [F] Word = [F] Word identifier aux01 [B] Identifier [B] Expression - Identifier [F] Word + [F] Word identifier aux02 [B] Identifier [B] Expression - Identifier [F] Dot coma [B] Expression - Plus [B] Statement - Equals array
+[F] Word identifier j [B] Identifier [F] Word = [F] Word identifier j [B] Identifier [B] Expression - Identifier [F] Word + [F] Number 1 [B] Expression - INTEGER_LITERAL [F] Dot coma [B] Expression - Plus [B] Statement - Equals
+[F] Word identifier k [B] Identifier [F] Word = [F] Word identifier k [B] Identifier [B] Expression - Identifier [F] Word - [F] Number 1 [B] Expression - INTEGER_LITERAL [F] Dot coma [B] Expression - Minus [B] Statement - Equals
+[F] Word } [B] Statement - {Statement}[B] Statement - While
+[F] Word return [F] Number 0 [B] Expression - INTEGER_LITERAL [F] Dot coma 
+[F] Word } [B] MethodDeclaration 
+
+[F] Word } [B] ClassDeclaration 
+[B] Goal Built a parse-tree:
+Goal:
+  MainClass:
+    Identifier :BinarySearch
+    Identifier :a
+    ExpressionIdentifier:
+      Identifier :BS
+      Identifier :Start
+      ExpComaExp:
+        Integer Literal:$1
+  ClassDeclaration:
+    Identifier :BS
+    VarDeclarationList:
+      VarDeclaration:
+        TypeIntBracket:
+        Identifier :number
+      VarDeclaration:
+        TypeInt:
+        Identifier :size
+    MethodDeclarationList:
+      MethodDeclarationList:
+        MethodDeclarationList:
+          MethodDeclarationList:
+            MethodDeclarationList:
+              MethodDeclaration:
+                TypeInt:
+                Identifier :Start
+                TypeId:
+                  TypeInt:
+                  Identifier :sz
+                VarDeclarationList:
+                  VarDeclaration:
+                    TypeInt:
+                    Identifier :aux01
+                  VarDeclaration:
+                    TypeInt:
+                    Identifier :aux02
+                StatementList:
+                  StatementList:
+                    StatementList:
+                      StatementList:
+                        StatementList:
+                          StatementList:
+                            StatementList:
+                              StatementList:
+                                StatementList:
+                                  Statement equals:
+                                    Identifier :aux01
+                                    ExpressionIdentifier:
+                                      This:
+                                      Identifier :Init
+                                      ExpComaExp:
+                                        Identifier :sz
+                                  Statement equals:
+                                    Identifier :aux02
+                                    ExpressionIdentifier:
+                                      This:
+                                      Identifier :Print
+                                Statement:
+                                  ExpressionIdentifier:
+                                    This:
+                                    Identifier :Search
+                                    ExpComaExp:
+                                      Integer Literal:$1
+                                  Integer Literal:$1
+                                  Integer Literal:$1
+                              Statement:
+                                ExpressionIdentifier:
+                                  This:
+                                  Identifier :Search
+                                  ExpComaExp:
+                                    Integer Literal:$1
+                                Integer Literal:$1
+                                Integer Literal:$1
+                            Statement:
+                              ExpressionIdentifier:
+                                This:
+                                Identifier :Search
+                                ExpComaExp:
+                                  Integer Literal:$1
+                              Integer Literal:$1
+                              Integer Literal:$1
+                          Statement:
+                            ExpressionIdentifier:
+                              This:
+                              Identifier :Search
+                              ExpComaExp:
+                                Integer Literal:$1
+                            Integer Literal:$1
+                            Integer Literal:$1
+                        Statement:
+                          ExpressionIdentifier:
+                            This:
+                            Identifier :Search
+                            ExpComaExp:
+                              Integer Literal:$1
+                          Integer Literal:$1
+                          Integer Literal:$1
+                      Statement:
+                        ExpressionIdentifier:
+                          This:
+                          Identifier :Search
+                          ExpComaExp:
+                            Integer Literal:$1
+                        Integer Literal:$1
+                        Integer Literal:$1
+                    Statement:
+                      ExpressionIdentifier:
+                        This:
+                        Identifier :Search
+                        ExpComaExp:
+                          Integer Literal:$1
+                      Integer Literal:$1
+                      Integer Literal:$1
+                  Statement:
+                    ExpressionIdentifier:
+                      This:
+                      Identifier :Search
+                      ExpComaExp:
+                        Integer Literal:$1
+                    Integer Literal:$1
+                    Integer Literal:$1
+                Integer Literal:$1
+              MethodDeclaration:
+                TypeBoolean:
+                Identifier :Search
+                TypeId:
+                  TypeInt:
+                  Identifier :num
+                VarDeclarationList:
+                  VarDeclarationList:
+                    VarDeclarationList:
+                      VarDeclarationList:
+                        VarDeclarationList:
+                          VarDeclarationList:
+                            VarDeclaration:
+                              TypeBoolean:
+                              Identifier :bs01
+                            VarDeclaration:
+                              TypeInt:
+                              Identifier :right
+                          VarDeclaration:
+                            TypeInt:
+                            Identifier :left
+                        VarDeclaration:
+                          TypeBoolean:
+                          Identifier :var_cont
+                      VarDeclaration:
+                        TypeInt:
+                        Identifier :medium
+                    VarDeclaration:
+                      TypeInt:
+                      Identifier :aux01
+                  VarDeclaration:
+                    TypeInt:
+                    Identifier :nt
+                StatementList:
+                  StatementList:
+                    StatementList:
+                      StatementList:
+                        StatementList:
+                          StatementList:
+                            StatementList:
+                              Statement equals:
+                                Identifier :aux01
+                                Integer Literal:$1
+                              Statement equals:
+                                Identifier :bs01
+                                False:
+                            Statement equals:
+                              Identifier :right
+                              Identifier :number
+                          Statement equals:
+                            Identifier :right
+                            ExpressionMinus:
+                              Identifier :right
+                              Integer Literal:$1
+                        Statement equals:
+                          Identifier :left
+                          Integer Literal:$1
+                      Statement equals:
+                        Identifier :var_cont
+                        True:
+                    Statement:
+                      Identifier :var_cont
+                      Statement:
+                        StatementList:
+                          StatementList:
+                            StatementList:
+                              StatementList:
+                                StatementList:
+                                  Statement equals:
+                                    Identifier :medium
+                                    ExpressionPlus:
+                                      Identifier :left
+                                      Identifier :right
+                                  Statement equals:
+                                    Identifier :medium
+                                    ExpressionIdentifier:
+                                      This:
+                                      Identifier :Div
+                                      ExpComaExp:
+                                        Identifier :medium
+                                Statement equals:
+                                  Identifier :aux01
+                                  ExpresssionSBracket:
+                                    Identifier :number
+                                    Identifier :medium
+                              Statement:
+                                Expression:
+                                  Identifier :num
+                                  Identifier :aux01
+                                Statement equals:
+                                  Identifier :right
+                                  ExpressionMinus:
+                                    Identifier :medium
+                                    Integer Literal:$1
+                                Statement equals:
+                                  Identifier :left
+                                  ExpressionPlus:
+                                    Identifier :medium
+                                    Integer Literal:$1
+                            Statement:
+                              ExpressionIdentifier:
+                                This:
+                                Identifier :Compare
+                                ExpComaExp:
+                                  Identifier :aux01
+                                  Identifier :num
+                              Statement equals:
+                                Identifier :var_cont
+                                False:
+                              Statement equals:
+                                Identifier :var_cont
+                                True:
+                          Statement:
+                            Expression:
+                              Identifier :right
+                              Identifier :left
+                            Statement equals:
+                              Identifier :var_cont
+                              False:
+                            Statement equals:
+                              Identifier :nt
+                              Integer Literal:$1
+                  Statement:
+                    ExpressionIdentifier:
+                      This:
+                      Identifier :Compare
+                      ExpComaExp:
+                        Identifier :aux01
+                        Identifier :num
+                    Statement equals:
+                      Identifier :bs01
+                      True:
+                    Statement equals:
+                      Identifier :bs01
+                      False:
+                Identifier :bs01
+            MethodDeclaration:
+              TypeInt:
+              Identifier :Div
+              TypeId:
+                TypeInt:
+                Identifier :num
+              VarDeclarationList:
+                VarDeclarationList:
+                  VarDeclaration:
+                    TypeInt:
+                    Identifier :count01
+                  VarDeclaration:
+                    TypeInt:
+                    Identifier :count02
+                VarDeclaration:
+                  TypeInt:
+                  Identifier :aux03
+              StatementList:
+                StatementList:
+                  StatementList:
+                    Statement equals:
+                      Identifier :count01
+                      Integer Literal:$1
+                    Statement equals:
+                      Identifier :count02
+                      Integer Literal:$1
+                  Statement equals:
+                    Identifier :aux03
+                    ExpressionMinus:
+                      Identifier :num
+                      Integer Literal:$1
+                Statement:
+                  Expression:
+                    Identifier :count02
+                    Identifier :aux03
+                  Statement:
+                    StatementList:
+                      Statement equals:
+                        Identifier :count01
+                        ExpressionPlus:
+                          Identifier :count01
+                          Integer Literal:$1
+                      Statement equals:
+                        Identifier :count02
+                        ExpressionPlus:
+                          Identifier :count02
+                          Integer Literal:$1
+              Identifier :count01
+          MethodDeclaration:
+            TypeBoolean:
+            Identifier :Compare
+            TypeIdComaTypeId:
+              TypeInt:
+              Identifier :num1
+              ComaTypeId:
+                TypeInt:
+                Identifier :num2
+            VarDeclarationList:
+              VarDeclaration:
+                TypeBoolean:
+                Identifier :retval
+              VarDeclaration:
+                TypeInt:
+                Identifier :aux02
+            StatementList:
+              StatementList:
+                Statement equals:
+                  Identifier :retval
+                  False:
+                Statement equals:
+                  Identifier :aux02
+                  ExpressionPlus:
+                    Identifier :num2
+                    Integer Literal:$1
+              Statement:
+                Expression:
+                  Identifier :num1
+                  Identifier :num2
+                Statement equals:
+                  Identifier :retval
+                  False:
+                Statement:
+                  Expression:
+                    Identifier :num1
+                    Identifier :aux02
+                  Statement equals:
+                    Identifier :retval
+                    False:
+                  Statement equals:
+                    Identifier :retval
+                    True:
+            Identifier :retval
+        MethodDeclaration:
+          TypeInt:
+          Identifier :Print
+          VarDeclaration:
+            TypeInt:
+            Identifier :j
+          StatementList:
+            StatementList:
+              Statement equals:
+                Identifier :j
+                Integer Literal:$1
+              Statement:
+                Expression:
+                  Identifier :j
+                  Identifier :size
+                Statement:
+                  StatementList:
+                    ExpresssionSBracket:
+                      Identifier :number
+                      Identifier :j
+                    Statement equals:
+                      Identifier :j
+                      ExpressionPlus:
+                        Identifier :j
+                        Integer Literal:$1
+            Integer Literal:$1
+          Integer Literal:$1
+      MethodDeclaration:
+        TypeInt:
+        Identifier :Init
+        TypeId:
+          TypeInt:
+          Identifier :sz
+        VarDeclarationList:
+          VarDeclarationList:
+            VarDeclarationList:
+              VarDeclaration:
+                TypeInt:
+                Identifier :j
+              VarDeclaration:
+                TypeInt:
+                Identifier :k
+            VarDeclaration:
+              TypeInt:
+              Identifier :aux02
+          VarDeclaration:
+            TypeInt:
+            Identifier :aux01
+        StatementList:
+          StatementList:
+            StatementList:
+              StatementList:
+                Statement equals:
+                  Identifier :size
+                  Identifier :sz
+                Statement equals:
+                  Identifier :number
+                  Identifier :sz
+              Statement equals:
+                Identifier :j
+                Integer Literal:$1
+            Statement equals:
+              Identifier :k
+              ExpressionPlus:
+                Identifier :size
+                Integer Literal:$1
+          Statement:
+            Expression:
+              Identifier :j
+              Identifier :size
+            Statement:
+              StatementList:
+                StatementList:
+                  StatementList:
+                    StatementList:
+                      Statement equals:
+                        Identifier :aux01
+                        ExpressionMult:
+                          Integer Literal:$1
+                          Identifier :j
+                      Statement equals:
+                        Identifier :aux02
+                        ExpressionMinus:
+                          Identifier :k
+                          Integer Literal:$1
+                    Statement:
+                      Identifier :number
+                      Identifier :j
+                  Statement equals:
+                    Identifier :j
+                    ExpressionPlus:
+                      Identifier :j
+                      Integer Literal:$1
+                Statement equals:
+                  Identifier :k
+                  ExpressionMinus:
+                    Identifier :k
+                    Integer Literal:$1
+        Integer Literal:$1
+
+
