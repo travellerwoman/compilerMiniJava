@@ -10,7 +10,6 @@
     #include <stdlib.h>
     #include <string>
     #include "Node.h"
-    #include "tablaSimbolos.h"
 }
 
 %code{
@@ -21,8 +20,6 @@
     Node* root;
 
     extern int node_id;
-
-    tablaSimbolos ts;
 }
 
 %left <string> tk_letra

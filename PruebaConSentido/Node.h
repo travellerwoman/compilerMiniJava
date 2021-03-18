@@ -7,7 +7,6 @@
 #include <vector>
 #include <unistd.h>
 #include <sys/wait.h>
-#include "tablaSimbolos.h"
 
 using namespace std;
 

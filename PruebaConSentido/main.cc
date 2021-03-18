@@ -1,7 +1,6 @@
 #include <iostream>
 #include "parser.tab.hh"
 #include <memory>
-#include "tablaSimbolos.h"
 
 
 extern std::shared_ptr<Node> root;
